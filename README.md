@@ -1,123 +1,167 @@
 # Incredible API Cookbook 🧪
 
-Welcome to the Incredible API Cookbook! This repository contains practical examples, real-world use cases, and comprehensive guides for building powerful AI agents with the Incredible API.
+**Practical, executable examples for building AI agents with the Incredible API.**
 
-## 🌟 What is Incredible API?
+Clone any folder and run immediately - no complex setup required!
 
-Incredible API enables you to create AI agents that can integrate with multiple applications (up to 3 per agent) to automate complex workflows. From simple email automation to sophisticated data analysis pipelines, Incredible API makes it possible to build intelligent automation solutions.
+## 🎯 **What is Incredible API?**
 
-## 📚 Cookbook Structure
+Create AI agents that integrate with **up to 3 applications** to automate complex workflows:
 
-### 🚀 Getting Started
+- **Email automation** with Gmail + Sheets + Slack
+- **Lead management** with smart scoring and follow-ups
+- **Research automation** using Perplexity AI + data storage
+- **Financial dashboards** with real-time monitoring
 
-- [**Quick Setup**](./getting-started/quick-setup.md) - Get up and running in 5 minutes
-- [**Authentication Guide**](./getting-started/authentication.md) - Connect your integrations
-- [**Your First Agent**](./getting-started/first-agent.md) - Build a simple automation
+## 🚀 **Executable Examples**
 
-### 🔧 Basic Examples
+Each folder is a **complete, runnable project**:
 
-- [**Single Integration Examples**](./basic-examples/single-integration/) - Simple one-app automations
-- [**Multi-Integration Workflows**](./basic-examples/multi-integration/) - Combine 2-3 apps for powerful workflows
-- [**Function Calling Examples**](./basic-examples/function-calling/) - Custom functions and data processing
+### 📧 **[Email Automation](./email-automation/)**
 
-### 🏢 Real-World Use Cases
+**Auto-respond to Gmail inquiries and log to Google Sheets**
 
-- [**Business Operations**](./use-cases/business-operations/) - Team productivity and operations
-- [**Sales & Marketing**](./use-cases/sales-marketing/) - Lead generation and content automation
-- [**Finance & Analytics**](./use-cases/finance-analytics/) - Financial reporting and analysis
-- [**Content Creation**](./use-cases/content-creation/) - Content workflows and publishing
-- [**Customer Support**](./use-cases/customer-support/) - Support automation and management
+```bash
+cd email-automation && python main.py
+```
 
-### 💻 SDK Examples
+- Monitors Gmail for support/sales emails
+- Sends intelligent auto-responses
+- Logs all interactions to spreadsheet
+- **Apps**: Gmail + Google Sheets
 
-- [**Python SDK**](./sdk-examples/python/) - Complete Python examples and utilities
-- [**JavaScript SDK**](./sdk-examples/javascript/) - Complete JavaScript examples and utilities
+### 🎯 **[Lead Management](./lead-management/)**
 
-### 🔗 Integration Guides
+**Capture leads from email, score them, and send follow-ups**
 
-- [**Gmail**](./integrations/gmail/) - Email automation examples
-- [**Google Sheets**](./integrations/google-sheets/) - Spreadsheet automation
-- [**Slack**](./integrations/slack/) - Team communication automation
-- [**Perplexity**](./integrations/perplexity/) - AI-powered search and research
+```bash
+cd lead-management && python main.py
+```
 
-### 🛠️ Advanced Topics
+- Scans emails for potential leads
+- Scores leads 0-100 based on content
+- Stores in Google Sheets CRM
+- Sends personalized follow-up emails
+- **Apps**: Gmail + Google Sheets
 
-- [**Custom Functions**](./advanced/custom-functions/) - Building powerful custom functions
-- [**Error Handling**](./advanced/error-handling/) - Robust error handling patterns
-- [**Performance Optimization**](./advanced/performance/) - Tips for optimal performance
-- [**Best Practices**](./advanced/best-practices/) - Production-ready patterns
+### 🔍 **[Research Reporter](./research-reporter/)**
 
-## 🎯 Featured Examples
+**AI-powered research with comprehensive reports**
 
-### 📧 Meeting Organizer Agent
+```bash
+cd research-reporter && python main.py "AI in Healthcare 2024"
+```
 
-Automatically extract meeting details from Gmail and create organized tasks in Asana with Google Sheets tracking.
+- Multi-query research using Perplexity AI
+- Analyzes findings for themes and opportunities
+- Stores research data in Google Sheets
+- Emails executive reports to stakeholders
+- **Apps**: Perplexity + Google Sheets + Gmail
 
-**Integrations**: Gmail + Google Sheets + Asana
-**Use Case**: Meeting management and task organization
+### 📅 **[Meeting Organizer](./meeting-organizer/)**
 
-[**View Example →**](./use-cases/business-operations/meeting-organizer.md)
+**Extract meetings from Gmail and create organized workflows**
 
-### 📊 Financial Dashboard Agent
+```bash
+cd meeting-organizer && python main.py
+```
 
-Monitor expenses across platforms and generate comprehensive reports with automated alerts.
+- Scans Gmail for meeting invitations
+- Creates calendar events automatically
+- Generates prep and follow-up tasks in Asana
+- **Apps**: Gmail + Google Calendar + Asana
 
-**Integrations**: QuickBooks + Google Sheets + Slack
-**Use Case**: Financial monitoring and reporting
+### 📊 **[Financial Dashboard](./financial-dashboard/)**
 
-[**View Example →**](./use-cases/finance-analytics/financial-dashboard.md)
+**Real-time financial intelligence and reporting**
 
-### 🎨 Content Distribution Agent
+```bash
+cd financial-dashboard && python main.py
+```
 
-Take blog posts from Notion and automatically create platform-specific versions for LinkedIn and Twitter.
+- Researches market data and trends
+- Analyzes portfolio performance
+- Creates automated dashboards
+- Sends executive financial reports
+- **Apps**: Perplexity + Google Sheets + Gmail
 
-**Integrations**: Notion + LinkedIn + Twitter
-**Use Case**: Content marketing automation
+### ✍️ **[Content Generator](./content-generator/)**
 
-[**View Example →**](./use-cases/content-creation/content-distribution.md)
+**Research topics and create multi-format content**
 
-## 🚀 Quick Start
+```bash
+cd content-generator && python main.py "AI trends"
+```
 
-1. **Clone this repository**
+- Researches trending topics
+- Generates blog posts, social media content
+- Stores content in Google Docs
+- Distributes to team via email
+- **Apps**: Perplexity + Google Docs + Gmail
 
-   ```bash
-   git clone https://github.com/yourusername/incredible-api-cookbook.git
-   cd incredible-api-cookbook
-   ```
+## 🚀 **Quick Start - 2 Minutes to Running**
 
-2. **Install dependencies**
+### 1. **Choose an Example**
 
-   ```bash
-   # Python
-   pip install -r requirements.txt
+Pick any folder that interests you:
 
-   # JavaScript
-   npm install
-   ```
+```bash
+git clone https://github.com/yourusername/incredible-api-cookbook.git
+cd incredible-api-cookbook/email-automation  # or any other folder
+```
 
-3. **Set up your credentials**
+### 2. **Install & Configure**
 
-   ```bash
-   cp .env.example .env
-   # Add your Incredible API key and other credentials
-   ```
+```bash
+# Install Python dependencies
+pip install -r requirements.txt
 
-4. **Run your first example**
+# Set up your credentials
+cp env.example .env
+# Edit .env with your API keys
+```
 
-   ```bash
-   # Python
-   python getting-started/quick-setup/main.py
+### 3. **Run It**
 
-   # JavaScript
-   node getting-started/quick-setup/main.js
-   ```
+```bash
+python main.py
+```
 
-## 🔑 Prerequisites
+**That's it!** Each example is self-contained and ready to run.
 
-- Incredible API account ([Sign up here](https://incredible.one))
-- API credentials
-- Basic understanding of REST APIs
-- Python 3.8+ or Node.js 16+ (depending on your preferred language)
+## ⚙️ **Setup Requirements**
+
+### Incredible API Account
+
+1. **Sign up**: [https://incredible.one](https://incredible.one)
+2. **Get API key** from dashboard
+3. **Connect integrations** (Gmail, Google Sheets, Perplexity, etc.)
+
+### Common Environment Variables
+
+```bash
+INCREDIBLE_API_KEY=your_api_key_here
+USER_ID=your_user_id_here
+```
+
+Each example includes specific setup instructions in its README.
+
+## 📖 **How Each Example Works**
+
+Every folder follows the **Modal Labs pattern**:
+
+```
+email-automation/
+├── main.py           # Complete working script
+├── requirements.txt  # Python dependencies
+├── env.example      # Configuration template
+└── README.md        # Usage instructions
+```
+
+1. **Clone** the folder you want to try
+2. **Install** dependencies with `pip install -r requirements.txt`
+3. **Configure** your credentials in `.env`
+4. **Run** with `python main.py`
 
 ## 🤝 Contributing
 
@@ -143,4 +187,4 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 
 ---
 
-**Ready to build something incredible?** Start with our [Quick Setup Guide](./getting-started/quick-setup.md) and create your first AI agent in minutes! 🚀
+**Ready to automate your workflows?** Pick an example folder and start building in 2 minutes! 🚀
