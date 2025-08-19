@@ -18,34 +18,46 @@ Get your first Incredible AI agent running in under 5 minutes!
 
 ## Step 2: Install Dependencies
 
-### Python Setup
-
-Create a new directory and set up your environment:
-
-```bash
+<div class="code-tabs" data-section="setup">
+  <div class="code-tabs-header">
+    <button class="code-tab-button" data-language="python">Python</button>
+    <button class="code-tab-button" data-language="javascript">JavaScript</button>
+    <div class="code-tab-header-controls">
+      <button class="copy-button">Copy</button>
+    </div>
+  </div>
+  
+  <div class="code-tab-content">
+    <pre><code class="language-bash"># Create a new directory and set up your environment
 mkdir my-incredible-agent
 cd my-incredible-agent
 
 # Create virtual environment (recommended)
+
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+source venv/bin/activate # On Windows: venv\Scripts\activate
 
 # Install required packages
-pip install requests python-dotenv
-```
 
-### JavaScript Setup
+pip install requests python-dotenv</code></pre>
 
-```bash
+  </div>
+  
+  <div class="code-tab-content">
+    <pre><code class="language-bash"># Create a new directory and set up your environment
 mkdir my-incredible-agent
 cd my-incredible-agent
 
 # Initialize npm project
+
 npm init -y
 
 # Install required packages
-npm install axios dotenv
-```
+
+npm install axios dotenv</code></pre>
+
+  </div>
+</div>
 
 ## Step 3: Set Up Environment Variables
 
@@ -61,26 +73,33 @@ INCREDIBLE_BASE_URL=https://api.incredible.one
 
 Let's create a simple agent that searches the web using Perplexity AI.
 
-### Python Example
-
-Create `main.py`:
-
-```python
+<div class="code-tabs" data-section="first-agent">
+  <div class="code-tabs-header">
+    <button class="code-tab-button" data-language="python">Python</button>
+    <button class="code-tab-button" data-language="javascript">JavaScript</button>
+    <div class="code-tab-header-controls">
+      <button class="copy-button">Copy</button>
+    </div>
+  </div>
+  
+  <div class="code-tab-content">
+    <pre><code class="language-python"># main.py
 import os
 import requests
 from dotenv import load_dotenv
 
 # Load environment variables
+
 load_dotenv()
 
 class IncredibleClient:
-    def __init__(self):
-        self.api_key = os.getenv('INCREDIBLE_API_KEY')
-        self.base_url = os.getenv('INCREDIBLE_BASE_URL')
-        self.headers = {
-            'Content-Type': 'application/json',
-            'Authorization': f'Bearer {self.api_key}'
-        }
+def **init**(self):
+self.api_key = os.getenv('INCREDIBLE_API_KEY')
+self.base_url = os.getenv('INCREDIBLE_BASE_URL')
+self.headers = {
+'Content-Type': 'application/json',
+'Authorization': f'Bearer {self.api_key}'
+}
 
     def create_search_agent(self, query):
         """Create an agent that searches the web using Perplexity"""
@@ -146,49 +165,48 @@ class IncredibleClient:
         return "Response completed"
 
 # Usage example
-if __name__ == "__main__":
-    client = IncredibleClient()
+
+if **name** == "**main**":
+client = IncredibleClient()
 
     # Test the search agent
     query = "latest developments in artificial intelligence 2024"
     result = client.create_search_agent(query)
-    print(f"\n🎉 Final result: {result}")
-```
+    print(f"\n🎉 Final result: {result}")</code></pre>
 
-### JavaScript Example
-
-Create `main.js`:
-
-```javascript
+  </div>
+  
+  <div class="code-tab-content">
+    <pre><code class="language-javascript">// main.js
 const axios = require("axios");
 require("dotenv").config();
 
 class IncredibleClient {
-  constructor() {
-    this.apiKey = process.env.INCREDIBLE_API_KEY;
-    this.baseUrl = process.env.INCREDIBLE_BASE_URL;
-    this.headers = {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${this.apiKey}`,
-    };
-  }
+constructor() {
+this.apiKey = process.env.INCREDIBLE_API_KEY;
+this.baseUrl = process.env.INCREDIBLE_BASE_URL;
+this.headers = {
+"Content-Type": "application/json",
+Authorization: `Bearer ${this.apiKey}`,
+};
+}
 
-  async createSearchAgent(query) {
-    // Define the search function
-    const searchFunction = {
-      name: "perplexity_search",
-      description: "Search the web using Perplexity AI",
-      parameters: {
-        type: "object",
-        properties: {
-          query: {
-            type: "string",
-            description: "The search query",
-          },
-        },
-        required: ["query"],
-      },
-    };
+async createSearchAgent(query) {
+// Define the search function
+const searchFunction = {
+name: "perplexity_search",
+description: "Search the web using Perplexity AI",
+parameters: {
+type: "object",
+properties: {
+query: {
+type: "string",
+description: "The search query",
+},
+},
+required: ["query"],
+},
+};
 
     // Create the chat completion request
     const data = {
@@ -214,10 +232,11 @@ class IncredibleClient {
         error.response?.data || error.message
       }`;
     }
-  }
 
-  handleResponse(result) {
-    console.log("🤖 AI Response:");
+}
+
+handleResponse(result) {
+console.log("🤖 AI Response:");
 
     for (const item of result.result.response) {
       if (item.role === "assistant") {
@@ -236,35 +255,44 @@ class IncredibleClient {
     }
 
     return "Response completed";
-  }
+
+}
 }
 
 // Usage example
 async function main() {
-  const client = new IncredibleClient();
+const client = new IncredibleClient();
 
-  // Test the search agent
-  const query = "latest developments in artificial intelligence 2024";
-  const result = await client.createSearchAgent(query);
-  console.log(`\n🎉 Final result: ${result}`);
+// Test the search agent
+const query = "latest developments in artificial intelligence 2024";
+const result = await client.createSearchAgent(query);
+console.log(`\n🎉 Final result: ${result}`);
 }
 
-main().catch(console.error);
-```
+main().catch(console.error);</code></pre>
+
+  </div>
+</div>
 
 ## Step 5: Run Your Agent
 
-### Python
-
-```bash
-python main.py
-```
-
-### JavaScript
-
-```bash
-node main.js
-```
+<div class="code-tabs" data-section="run-agent">
+  <div class="code-tabs-header">
+    <button class="code-tab-button" data-language="python">Python</button>
+    <button class="code-tab-button" data-language="javascript">JavaScript</button>
+    <div class="code-tab-header-controls">
+      <button class="copy-button">Copy</button>
+    </div>
+  </div>
+  
+  <div class="code-tab-content">
+    <pre><code class="language-bash">python main.py</code></pre>
+  </div>
+  
+  <div class="code-tab-content">
+    <pre><code class="language-bash">node main.js</code></pre>
+  </div>
+</div>
 
 ## Expected Output
 

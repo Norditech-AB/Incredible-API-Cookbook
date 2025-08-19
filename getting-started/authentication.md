@@ -102,8 +102,17 @@ connect_perplexity("your_user_id", "pplx-your-api-key")
 
 Here's a complete example that connects multiple services:
 
-```python
-import os
+<div class="code-tabs" data-section="integration-manager">
+  <div class="code-tabs-header">
+    <button class="code-tab-button" data-language="python">Python</button>
+    <button class="code-tab-button" data-language="javascript">JavaScript</button>
+    <div class="code-tab-header-controls">
+      <button class="copy-button">Copy</button>
+    </div>
+  </div>
+  
+  <div class="code-tab-content">
+    <pre><code class="language-python">import os
 import requests
 import time
 from dotenv import load_dotenv
@@ -111,9 +120,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 class IntegrationManager:
-    def __init__(self):
-        self.base_url = "https://api.incredible.one"
-        self.user_id = "your_user_id"  # Replace with actual user ID
+def **init**(self):
+self.base_url = "https://api.incredible.one"
+self.user_id = "your_user_id" # Replace with actual user ID
 
     def connect_api_key_service(self, service_id, api_key):
         """Connect services that use API key authentication"""
@@ -188,10 +197,100 @@ class IntegrationManager:
         print("💡 After completing OAuth flows, your workspace will be ready!")
 
 # Usage
-if __name__ == "__main__":
-    manager = IntegrationManager()
-    manager.setup_complete_workspace()
-```
+
+if **name** == "**main**":
+manager = IntegrationManager()
+manager.setup_complete_workspace()</code></pre>
+
+  </div>
+  
+  <div class="code-tab-content">
+    <pre><code class="language-javascript">const axios = require("axios");
+require("dotenv").config();
+
+class IntegrationManager {
+constructor() {
+this.baseUrl =
+process.env.INCREDIBLE_BASE_URL || "https://api.incredible.one";
+this.userId = process.env.USER_ID;
+}
+
+async connectApiKeyService(serviceId, apiKey) {
+const url = `${this.baseUrl}/v1/integrations/${serviceId}/connect`;
+
+    try {
+      const response = await axios.post(url, {
+        user_id: this.userId,
+        api_key: apiKey,
+      });
+
+      if (response.data.success) {
+        console.log(`✅ ${serviceId} connected successfully!`);
+        return true;
+      }
+    } catch (error) {
+      console.log(`❌ ${serviceId} connection failed:`, error.response?.data);
+      return false;
+    }
+
+}
+
+async initiateOAuth(serviceId, callbackUrl = null) {
+const url = `${this.baseUrl}/v1/integrations/${serviceId}/connect`;
+
+    try {
+      const response = await axios.post(url, {
+        user_id: this.userId,
+        callback_url: callbackUrl || `https://your-app.com/oauth/${serviceId}`,
+      });
+
+      if (response.data.redirect_url) {
+        console.log(`🔗 ${serviceId} OAuth Setup:`);
+        console.log(`Visit: ${response.data.redirect_url}`);
+        return response.data.redirect_url;
+      }
+    } catch (error) {
+      console.log(`❌ ${serviceId} OAuth failed:`, error.response?.data);
+      return null;
+    }
+
+}
+
+async setupWorkspace() {
+console.log("🚀 Setting up your Incredible workspace...\n");
+
+    // Connect API key services
+    if (process.env.PERPLEXITY_API_KEY) {
+      await this.connectApiKeyService(
+        "perplexity",
+        process.env.PERPLEXITY_API_KEY
+      );
+    }
+
+    // Initiate OAuth flows
+    const oauthServices = ["gmail", "google_sheets", "slack"];
+
+    console.log("\n📋 OAuth Services Setup:");
+    for (const service of oauthServices) {
+      const redirectUrl = await this.initiateOAuth(service);
+      if (redirectUrl) {
+        console.log(`• ${service}: ${redirectUrl}\n`);
+      }
+    }
+
+}
+}
+
+// Usage
+async function main() {
+const manager = new IntegrationManager();
+await manager.setupWorkspace();
+}
+
+main().catch(console.error);</code></pre>
+
+  </div>
+</div>
 
 ### Environment Variables Setup
 
@@ -253,89 +352,6 @@ def test_integration(service_id, user_id):
 services_to_test = ["gmail", "perplexity", "slack"]
 for service in services_to_test:
     test_integration(service, "your_user_id")
-```
-
-## JavaScript/Node.js Examples
-
-### OAuth Setup (JavaScript)
-
-```javascript
-const axios = require("axios");
-require("dotenv").config();
-
-class IntegrationManager {
-  constructor() {
-    this.baseUrl =
-      process.env.INCREDIBLE_BASE_URL || "https://api.incredible.one";
-    this.userId = process.env.USER_ID;
-  }
-
-  async connectApiKeyService(serviceId, apiKey) {
-    const url = `${this.baseUrl}/v1/integrations/${serviceId}/connect`;
-
-    try {
-      const response = await axios.post(url, {
-        user_id: this.userId,
-        api_key: apiKey,
-      });
-
-      if (response.data.success) {
-        console.log(`✅ ${serviceId} connected successfully!`);
-        return true;
-      }
-    } catch (error) {
-      console.log(`❌ ${serviceId} connection failed:`, error.response?.data);
-      return false;
-    }
-  }
-
-  async initiateOAuth(serviceId, callbackUrl = null) {
-    const url = `${this.baseUrl}/v1/integrations/${serviceId}/connect`;
-
-    try {
-      const response = await axios.post(url, {
-        user_id: this.userId,
-        callback_url: callbackUrl || `https://your-app.com/oauth/${serviceId}`,
-      });
-
-      if (response.data.redirect_url) {
-        console.log(`🔗 ${serviceId} OAuth Setup:`);
-        console.log(`Visit: ${response.data.redirect_url}`);
-        return response.data.redirect_url;
-      }
-    } catch (error) {
-      console.log(`❌ ${serviceId} OAuth failed:`, error.response?.data);
-      return null;
-    }
-  }
-
-  async setupWorkspace() {
-    console.log("🚀 Setting up your Incredible workspace...\n");
-
-    // Connect API key services
-    if (process.env.PERPLEXITY_API_KEY) {
-      await this.connectApiKeyService(
-        "perplexity",
-        process.env.PERPLEXITY_API_KEY
-      );
-    }
-
-    // Initiate OAuth flows
-    const oauthServices = ["gmail", "google_sheets", "slack"];
-
-    console.log("\n📋 OAuth Services Setup:");
-    for (const service of oauthServices) {
-      const redirectUrl = await this.initiateOAuth(service);
-      if (redirectUrl) {
-        console.log(`• ${service}: ${redirectUrl}\n`);
-      }
-    }
-  }
-}
-
-// Usage
-const manager = new IntegrationManager();
-manager.setupWorkspace();
 ```
 
 ## Best Practices

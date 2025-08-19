@@ -326,9 +326,19 @@ ASANA_PROJECT_ID=your_asana_project_id
 DEBUG=true
 ```
 
-## Step 4: JavaScript Version
+## Step 4: Complete Agent Implementation
 
-Here's the same agent implemented in JavaScript:
+<div class="code-tabs" data-section="meeting-organizer-agent">
+  <div class="code-tabs-header">
+    <button class="code-tab-button" data-language="python">Python</button>
+    <button class="code-tab-button" data-language="javascript">JavaScript</button>
+    <div class="code-tab-header-controls">
+      <button class="copy-button">Copy</button>
+    </div>
+  </div>
+  
+  <div class="code-tab-content">
+    <pre><code class="language-python"># meeting_organizer_agent.py
 
 ```javascript
 // meetingOrganizerAgent.js

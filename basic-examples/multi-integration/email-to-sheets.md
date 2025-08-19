@@ -39,9 +39,17 @@ https://docs.google.com/spreadsheets/d/SHEET_ID_HERE/edit
 
 ## Implementation
 
-### Python Version
-
-```python
+<div class="code-tabs" data-section="email-to-sheets">
+  <div class="code-tabs-header">
+    <button class="code-tab-button" data-language="python">Python</button>
+    <button class="code-tab-button" data-language="javascript">JavaScript</button>
+    <div class="code-tab-header-controls">
+      <button class="copy-button">Copy</button>
+    </div>
+  </div>
+  
+  <div class="code-tab-content">
+    <pre><code class="language-python">
 import os
 import re
 import requests
@@ -51,14 +59,14 @@ from dotenv import load_dotenv
 load_dotenv()
 
 class EmailToSheetsLogger:
-    def __init__(self):
-        self.base_url = os.getenv('INCREDIBLE_BASE_URL', 'https://api.incredible.one')
-        self.user_id = os.getenv('USER_ID')
-        self.sheet_id = os.getenv('EMAIL_TRACKING_SHEET_ID')
-        self.headers = {
-            'Content-Type': 'application/json',
-            'Authorization': f"Bearer {os.getenv('INCREDIBLE_API_KEY')}"
-        }
+def **init**(self):
+self.base_url = os.getenv('INCREDIBLE_BASE_URL', 'https://api.incredible.one')
+self.user_id = os.getenv('USER_ID')
+self.sheet_id = os.getenv('EMAIL_TRACKING_SHEET_ID')
+self.headers = {
+'Content-Type': 'application/json',
+'Authorization': f"Bearer {os.getenv('INCREDIBLE_API_KEY')}"
+}
 
         # Define email filters
         self.filters = {
@@ -323,8 +331,9 @@ class EmailToSheetsLogger:
             print(f"❌ Failed to read sheet stats: {response.text}")
 
 # Usage Examples
-if __name__ == "__main__":
-    logger = EmailToSheetsLogger()
+
+if **name** == "**main**":
+logger = EmailToSheetsLogger()
 
     # Setup (run once)
     # logger.setup_sheet_headers()
@@ -334,26 +343,26 @@ if __name__ == "__main__":
 
     # View statistics
     print("\n" + "="*50)
-    logger.get_sheet_stats()
-```
+    logger.get_sheet_stats()</code></pre>
 
-### JavaScript Version
-
-```javascript
+  </div>
+  
+  <div class="code-tab-content">
+    <pre><code class="language-javascript">
 // emailToSheetsLogger.js
 const axios = require("axios");
 require("dotenv").config();
 
 class EmailToSheetsLogger {
-  constructor() {
-    this.baseUrl =
-      process.env.INCREDIBLE_BASE_URL || "https://api.incredible.one";
-    this.userId = process.env.USER_ID;
-    this.sheetId = process.env.EMAIL_TRACKING_SHEET_ID;
-    this.headers = {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${process.env.INCREDIBLE_API_KEY}`,
-    };
+constructor() {
+this.baseUrl =
+process.env.INCREDIBLE_BASE_URL || "https://api.incredible.one";
+this.userId = process.env.USER_ID;
+this.sheetId = process.env.EMAIL_TRACKING_SHEET_ID;
+this.headers = {
+"Content-Type": "application/json",
+Authorization: `Bearer ${process.env.INCREDIBLE_API_KEY}`,
+};
 
     this.filters = {
       high_priority: [
@@ -377,11 +386,12 @@ class EmailToSheetsLogger {
         "subject:partnership",
       ],
     };
-  }
 
-  async searchEmails(query, maxResults = 20) {
-    try {
-      const url = `${this.baseUrl}/v1/integrations/gmail/execute`;
+}
+
+async searchEmails(query, maxResults = 20) {
+try {
+const url = `${this.baseUrl}/v1/integrations/gmail/execute`;
 
       const data = {
         user_id: this.userId,
@@ -398,11 +408,12 @@ class EmailToSheetsLogger {
       console.error("Error searching emails:", error.response?.data);
       return [];
     }
-  }
 
-  async addToSheets(rowData) {
-    try {
-      const url = `${this.baseUrl}/v1/integrations/google_sheets/execute`;
+}
+
+async addToSheets(rowData) {
+try {
+const url = `${this.baseUrl}/v1/integrations/google_sheets/execute`;
 
       const data = {
         user_id: this.userId,
@@ -420,12 +431,13 @@ class EmailToSheetsLogger {
       console.error("Error adding to sheets:", error.response?.data);
       return false;
     }
-  }
 
-  determinePriority(email) {
-    const subject = (email.subject || "").toLowerCase();
-    const sender = (email.sender || "").toLowerCase();
-    const content = (email.content || "").toLowerCase();
+}
+
+determinePriority(email) {
+const subject = (email.subject || "").toLowerCase();
+const sender = (email.sender || "").toLowerCase();
+const content = (email.content || "").toLowerCase();
 
     const highPriorityWords = [
       "urgent",
@@ -451,12 +463,13 @@ class EmailToSheetsLogger {
     }
 
     return "LOW";
-  }
 
-  extractLabels(email) {
-    const labels = [];
-    const subject = (email.subject || "").toLowerCase();
-    const content = (email.content || "").toLowerCase();
+}
+
+extractLabels(email) {
+const labels = [];
+const subject = (email.subject || "").toLowerCase();
+const content = (email.content || "").toLowerCase();
 
     if (
       ["meeting", "call", "conference"].some((word) =>
@@ -491,10 +504,11 @@ class EmailToSheetsLogger {
     }
 
     return labels.length > 0 ? labels.join(", ") : "general";
-  }
 
-  cleanContentPreview(content, maxLength = 100) {
-    if (!content) return "No content";
+}
+
+cleanContentPreview(content, maxLength = 100) {
+if (!content) return "No content";
 
     // Remove HTML tags
     let cleanContent = content.replace(/<[^>]+>/g, "");
@@ -508,22 +522,23 @@ class EmailToSheetsLogger {
     }
 
     return cleanContent;
-  }
 
-  formatEmailForSheets(email) {
-    return [
-      new Date().toISOString().slice(0, 19).replace("T", " "),
-      email.subject || "No Subject",
-      email.sender || "Unknown",
-      this.determinePriority(email),
-      this.extractLabels(email),
-      this.cleanContentPreview(email.content || ""),
-      "NEW",
-    ];
-  }
+}
 
-  async processFilterCategory(categoryName, queries) {
-    console.log(`\n🔍 Processing ${categoryName} emails...`);
+formatEmailForSheets(email) {
+return [
+new Date().toISOString().slice(0, 19).replace("T", " "),
+email.subject || "No Subject",
+email.sender || "Unknown",
+this.determinePriority(email),
+this.extractLabels(email),
+this.cleanContentPreview(email.content || ""),
+"NEW",
+];
+}
+
+async processFilterCategory(categoryName, queries) {
+console.log(`\n🔍 Processing ${categoryName} emails...`);
 
     let allEmails = [];
 
@@ -561,13 +576,14 @@ class EmailToSheetsLogger {
 
     console.log(`📊 Processed ${processedCount} ${categoryName} emails`);
     return processedCount;
-  }
 
-  async runDailySync() {
-    console.log("🚀 Starting Email to Sheets Sync...");
-    console.log(`📊 Target Sheet: ${this.sheetId}`);
-    console.log(`👤 User: ${this.userId}`);
-    console.log();
+}
+
+async runDailySync() {
+console.log("🚀 Starting Email to Sheets Sync...");
+console.log(`📊 Target Sheet: ${this.sheetId}`);
+console.log(`👤 User: ${this.userId}`);
+console.log();
 
     let totalProcessed = 0;
 
@@ -581,18 +597,19 @@ class EmailToSheetsLogger {
     console.log(
       `📊 View your tracking sheet: https://docs.google.com/spreadsheets/d/${this.sheetId}`
     );
-  }
 
-  async setupSheetHeaders() {
-    const headers = [
-      "Date",
-      "Subject",
-      "Sender",
-      "Priority",
-      "Labels",
-      "Content Preview",
-      "Status",
-    ];
+}
+
+async setupSheetHeaders() {
+const headers = [
+"Date",
+"Subject",
+"Sender",
+"Priority",
+"Labels",
+"Content Preview",
+"Status",
+];
 
     try {
       const url = `${this.baseUrl}/v1/integrations/google_sheets/execute`;
@@ -612,26 +629,29 @@ class EmailToSheetsLogger {
     } catch (error) {
       console.error("❌ Failed to setup headers:", error.response?.data);
     }
-  }
+
+}
 }
 
 // Usage
 async function main() {
-  const logger = new EmailToSheetsLogger();
+const logger = new EmailToSheetsLogger();
 
-  // Setup (run once)
-  // await logger.setupSheetHeaders();
+// Setup (run once)
+// await logger.setupSheetHeaders();
 
-  // Daily sync (run regularly)
-  await logger.runDailySync();
+// Daily sync (run regularly)
+await logger.runDailySync();
 }
 
 if (require.main === module) {
-  main().catch(console.error);
+main().catch(console.error);
 }
 
-module.exports = EmailToSheetsLogger;
-```
+module.exports = EmailToSheetsLogger;</code></pre>
+
+  </div>
+</div>
 
 ## Configuration
 

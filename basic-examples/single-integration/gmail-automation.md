@@ -12,9 +12,17 @@ Learn how to automate Gmail tasks using the Incredible API with simple, practica
 
 Monitor your inbox and get notifications for important emails.
 
-### Python Implementation
-
-```python
+<div class="code-tabs" data-section="gmail-alert-system">
+  <div class="code-tabs-header">
+    <button class="code-tab-button" data-language="python">Python</button>
+    <button class="code-tab-button" data-language="javascript">JavaScript</button>
+    <div class="code-tab-header-controls">
+      <button class="copy-button">Copy</button>
+    </div>
+  </div>
+  
+  <div class="code-tab-content">
+    <pre><code class="language-python">
 import os
 import requests
 from dotenv import load_dotenv
@@ -22,13 +30,13 @@ from dotenv import load_dotenv
 load_dotenv()
 
 class GmailAlertSystem:
-    def __init__(self):
-        self.base_url = os.getenv('INCREDIBLE_BASE_URL', 'https://api.incredible.one')
-        self.user_id = os.getenv('USER_ID')
-        self.headers = {
-            'Content-Type': 'application/json',
-            'Authorization': f"Bearer {os.getenv('INCREDIBLE_API_KEY')}"
-        }
+def **init**(self):
+self.base_url = os.getenv('INCREDIBLE_BASE_URL', 'https://api.incredible.one')
+self.user_id = os.getenv('USER_ID')
+self.headers = {
+'Content-Type': 'application/json',
+'Authorization': f"Bearer {os.getenv('INCREDIBLE_API_KEY')}"
+}
 
     def search_emails(self, query, max_results=10):
         """Search for emails matching criteria"""
@@ -141,8 +149,9 @@ class GmailAlertSystem:
                 print()
 
 # Usage Examples
-if __name__ == "__main__":
-    alert_system = GmailAlertSystem()
+
+if **name** == "**main**":
+alert_system = GmailAlertSystem()
 
     # Check for urgent emails
     alert_system.check_urgent_emails()
@@ -150,30 +159,30 @@ if __name__ == "__main__":
     print("\n" + "="*50 + "\n")
 
     # Generate daily summary
-    alert_system.daily_summary()
-```
+    alert_system.daily_summary()</code></pre>
 
-### JavaScript Implementation
-
-```javascript
+  </div>
+  
+  <div class="code-tab-content">
+    <pre><code class="language-javascript">
 // gmailAlertSystem.js
 const axios = require("axios");
 require("dotenv").config();
 
 class GmailAlertSystem {
-  constructor() {
-    this.baseUrl =
-      process.env.INCREDIBLE_BASE_URL || "https://api.incredible.one";
-    this.userId = process.env.USER_ID;
-    this.headers = {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${process.env.INCREDIBLE_API_KEY}`,
-    };
-  }
+constructor() {
+this.baseUrl =
+process.env.INCREDIBLE_BASE_URL || "https://api.incredible.one";
+this.userId = process.env.USER_ID;
+this.headers = {
+"Content-Type": "application/json",
+Authorization: `Bearer ${process.env.INCREDIBLE_API_KEY}`,
+};
+}
 
-  async searchEmails(query, maxResults = 10) {
-    try {
-      const url = `${this.baseUrl}/v1/integrations/gmail/execute`;
+async searchEmails(query, maxResults = 10) {
+try {
+const url = `${this.baseUrl}/v1/integrations/gmail/execute`;
 
       const data = {
         user_id: this.userId,
@@ -190,10 +199,11 @@ class GmailAlertSystem {
       console.error("Error searching emails:", error.response?.data);
       return [];
     }
-  }
 
-  async checkUrgentEmails() {
-    console.log("🔍 Checking for urgent emails...");
+}
+
+async checkUrgentEmails() {
+console.log("🔍 Checking for urgent emails...");
 
     const urgentQueries = [
       "subject:URGENT",
@@ -220,20 +230,21 @@ class GmailAlertSystem {
     } else {
       console.log("✅ No urgent emails found");
     }
-  }
 
-  processUrgentEmail(email) {
-    console.log(`📧 URGENT: ${email.subject || "No Subject"}`);
-    console.log(`   From: ${email.sender || "Unknown"}`);
-    console.log(`   Received: ${email.date || "Unknown"}`);
-    console.log(
-      `   Preview: ${(email.snippet || "No preview").substring(0, 100)}...`
-    );
-    console.log();
-  }
+}
 
-  async dailySummary() {
-    console.log("📊 Generating daily email summary...");
+processUrgentEmail(email) {
+console.log(`📧 URGENT: ${email.subject || "No Subject"}`);
+console.log(`   From: ${email.sender || "Unknown"}`);
+console.log(`   Received: ${email.date || "Unknown"}`);
+console.log(
+`   Preview: ${(email.snippet || "No preview").substring(0, 100)}...`
+);
+console.log();
+}
+
+async dailySummary() {
+console.log("📊 Generating daily email summary...");
 
     const todayEmails = await this.searchEmails("newer_than:1d", 50);
 
@@ -294,73 +305,87 @@ class GmailAlertSystem {
         console.log();
       }
     });
-  }
+
+}
 }
 
 // Usage
 async function main() {
-  const alertSystem = new GmailAlertSystem();
+const alertSystem = new GmailAlertSystem();
 
-  // Check for urgent emails
-  await alertSystem.checkUrgentEmails();
+// Check for urgent emails
+await alertSystem.checkUrgentEmails();
 
-  console.log("\n" + "=".repeat(50) + "\n");
+console.log("\n" + "=".repeat(50) + "\n");
 
-  // Generate daily summary
-  await alertSystem.dailySummary();
+// Generate daily summary
+await alertSystem.dailySummary();
 }
 
 if (require.main === module) {
-  main().catch(console.error);
+main().catch(console.error);
 }
 
-module.exports = GmailAlertSystem;
-```
+module.exports = GmailAlertSystem;</code></pre>
+
+  </div>
+</div>
 
 ## Example 2: Email Auto-Responder
 
 Automatically respond to emails based on content and sender.
 
-### Python Implementation
-
-```python
+<div class="code-tabs" data-section="gmail-auto-responder">
+  <div class="code-tabs-header">
+    <button class="code-tab-button" data-language="python">Python</button>
+    <button class="code-tab-button" data-language="javascript">JavaScript</button>
+    <div class="code-tab-header-controls">
+      <button class="copy-button">Copy</button>
+    </div>
+  </div>
+  
+  <div class="code-tab-content">
+    <pre><code class="language-python">
 import re
 from datetime import datetime
 
 class EmailAutoResponder:
-    def __init__(self):
-        self.base_url = os.getenv('INCREDIBLE_BASE_URL', 'https://api.incredible.one')
-        self.user_id = os.getenv('USER_ID')
-        self.headers = {
-            'Content-Type': 'application/json',
-            'Authorization': f"Bearer {os.getenv('INCREDIBLE_API_KEY')}"
-        }
+def **init**(self):
+self.base_url = os.getenv('INCREDIBLE_BASE_URL', 'https://api.incredible.one')
+self.user_id = os.getenv('USER_ID')
+self.headers = {
+'Content-Type': 'application/json',
+'Authorization': f"Bearer {os.getenv('INCREDIBLE_API_KEY')}"
+}
 
         # Response templates
         self.templates = {
             "out_of_office": """
+
 Thank you for your email. I am currently out of the office and will respond to your message when I return.
 
 For urgent matters, please contact [alternate contact].
 
 Best regards,
 [Your Name]
-            """.strip(),
+""".strip(),
 
             "meeting_request": """
+
 Thank you for the meeting request. I'll review my calendar and get back to you within 24 hours with my availability.
 
 Best regards,
 [Your Name]
-            """.strip(),
+""".strip(),
 
             "general_inquiry": """
+
 Thank you for reaching out. I've received your message and will respond within 2 business days.
 
 Best regards,
 [Your Name]
-            """.strip()
-        }
+""".strip()
+}
 
     def classify_email(self, email):
         """Classify email type for appropriate response"""
@@ -462,10 +487,12 @@ Best regards,
         requests.post(url, headers=self.headers, json=data)
 
 # Usage
-if __name__ == "__main__":
-    responder = EmailAutoResponder()
-    responder.process_new_emails()
-```
+
+if **name** == "**main**":
+responder = EmailAutoResponder()
+responder.process_new_emails()
+
+````
 
 ## Example 3: Email Analytics
 
@@ -600,7 +627,7 @@ class EmailAnalytics:
 if __name__ == "__main__":
     analytics = EmailAnalytics()
     analytics.get_email_stats(days=30)
-```
+````
 
 ## Best Practices
 
