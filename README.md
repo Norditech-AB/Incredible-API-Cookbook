@@ -1,212 +1,197 @@
 # Incredible API Cookbook 🧪
 
-**Practical, executable examples for building AI agents with the Incredible API.**
+**Learn to build AI agents with the Incredible API through hands-on, executable examples.**
 
-Clone any folder and run immediately - no complex setup required!
+Start with the fundamentals and master the chat completion API step by step!
 
 ## 🎯 **What is Incredible API?**
 
-Create AI agents that integrate with **up to 3 applications** to automate complex workflows:
+A powerful API for creating AI agents that can:
 
-- **Email automation** with Gmail + Sheets + Slack
-- **Lead management** with smart scoring and follow-ups
-- **Research automation** using Perplexity AI + data storage
-- **Financial dashboards** with real-time monitoring
+- **Chat completion** with advanced AI models (`small-1`, with `big-1`, `huge-1` coming soon)
+- **Function calling** to extend AI capabilities with custom functions
+- **Integrations** with popular services like Gmail, Google Sheets, Perplexity AI, and more
+- **Streaming responses** for real-time interaction
 
 ## 🎓 **Start Here: Getting Started**
 
 **New to Incredible API?** Begin with our step-by-step tutorial:
 
-### 📚 **[Getting Started Guide](./getting-started/)**
+### 📚 **[Getting Started Guide](./01-getting-started/)**
 
-**Learn the chat completion API fundamentals**
+**Master the Incredible API fundamentals with hands-on examples**
 
 ```bash
-cd getting-started && python 1_basic_chat.py
+cd 01-getting-started && python 1_basic_chat.py
 ```
 
-Progressive tutorial covering:
+**Complete progressive tutorial covering:**
 
-1. **Basic Chat** - Simple requests and responses
-2. **Streaming** - Real-time response generation
-3. **Function Calling** - Extend AI with custom functions
-4. **Integrations** - Use pre-built service connections
+#### 🔰 **[1. Basic Chat](./01-getting-started/1_basic_chat.py)**
 
-**Start here before trying the advanced examples below!**
+- Simple chat completion requests
+- Multi-model support (`small-1`, with more coming)
+- Multi-turn conversations
+- Error handling and best practices
+
+#### 🌊 **[2. Streaming Chat](./01-getting-started/2_streaming_chat.py)**
+
+- Real-time response streaming
+- Server-Sent Events (SSE) handling
+- Comparison with non-streaming responses
+
+#### ⚡ **[3. Function Calling](./01-getting-started/3_function_calling.py)**
+
+- Extend AI with custom functions
+- Weather API integration example
+- Structured function responses
+
+#### 🔌 **[4. Integrations](./01-getting-started/4_integrations.py)**
+
+- Gmail integration for sending emails
+- Perplexity AI for intelligent research
+- Pre-built service connections
+
+**Everything you need to start building with Incredible API!**
 
 ---
 
-## 🚀 **Advanced Examples**
+## 📋 **API Response Formats**
 
-Each folder is a **complete, runnable project**:
+Understanding how to parse API responses is crucial for working with the Incredible API:
 
-### 📧 **[Email Automation](./email-automation/)**
+### **Non-Streaming Responses**
 
-**Auto-respond to Gmail inquiries and log to Google Sheets**
-
-```bash
-cd email-automation && python main.py
+```json
+{
+  "result": {
+    "response": [
+      {
+        "content": "AI response content here...",
+        "role": "assistant"
+      }
+    ],
+    "thinking": "AI reasoning process..."
+  }
+}
 ```
 
-- Monitors Gmail for support/sales emails
-- Sends intelligent auto-responses
-- Logs all interactions to spreadsheet
-- **Apps**: Gmail + Google Sheets
+**To extract the response text:** Use `result.result.response[0].content`
 
-### 🎯 **[Lead Management](./lead-management/)**
+### **Streaming Responses (Server-Sent Events)**
 
-**Capture leads from email, score them, and send follow-ups**
-
-```bash
-cd lead-management && python main.py
+```
+data: {"content": {"type": "thinking_chunk", "content": "reasoning..."}}
+data: {"content": {"type": "content_chunk", "content": "response text"}}
+data: {"content": "[DONE]"}
 ```
 
-- Scans emails for potential leads
-- Scores leads 0-100 based on content
-- Stores in Google Sheets CRM
-- Sends personalized follow-up emails
-- **Apps**: Gmail + Google Sheets
+**To extract streaming text:** Use `chunk_data.content.content`
 
-### 🔍 **[Research Reporter](./research-reporter/)**
-
-**AI-powered research with comprehensive reports**
-
-```bash
-cd research-reporter && python main.py "AI in Healthcare 2024"
-```
-
-- Multi-query research using Perplexity AI
-- Analyzes findings for themes and opportunities
-- Stores research data in Google Sheets
-- Emails executive reports to stakeholders
-- **Apps**: Perplexity + Google Sheets + Gmail
-
-### 📅 **[Meeting Organizer](./meeting-organizer/)**
-
-**Extract meetings from Gmail and create organized workflows**
-
-```bash
-cd meeting-organizer && python main.py
-```
-
-- Scans Gmail for meeting invitations
-- Creates calendar events automatically
-- Generates prep and follow-up tasks in Asana
-- **Apps**: Gmail + Google Calendar + Asana
-
-### 📊 **[Financial Dashboard](./financial-dashboard/)**
-
-**Real-time financial intelligence and reporting**
-
-```bash
-cd financial-dashboard && python main.py
-```
-
-- Researches market data and trends
-- Analyzes portfolio performance
-- Creates automated dashboards
-- Sends executive financial reports
-- **Apps**: Perplexity + Google Sheets + Gmail
-
-### ✍️ **[Content Generator](./content-generator/)**
-
-**Research topics and create multi-format content**
-
-```bash
-cd content-generator && python main.py "AI trends"
-```
-
-- Researches trending topics
-- Generates blog posts, social media content
-- Stores content in Google Docs
-- Distributes to team via email
-- **Apps**: Perplexity + Google Docs + Gmail
+_See the tutorial examples for complete parsing implementations._
 
 ## 🚀 **Quick Start - 2 Minutes to Running**
 
-### 1. **Choose Your Starting Point**
-
-**New to Incredible API?** Start with the fundamentals:
+### 1. **Clone and Setup**
 
 ```bash
 git clone https://github.com/yourusername/incredible-api-cookbook.git
-cd incredible-api-cookbook/getting-started
+cd incredible-api-cookbook/01-getting-started
 ```
 
-**Ready for advanced examples?** Pick any cookbook folder:
+### 2. **Install Dependencies**
 
 ```bash
-cd incredible-api-cookbook/email-automation  # or any other folder
-```
+# Create virtual environment (recommended)
+python3 -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-### 2. **Install & Configure**
-
-```bash
 # Install Python dependencies
 pip install -r requirements.txt
-
-# Set up your credentials
-cp env.example .env
-# Edit .env with your API keys
 ```
 
-### 3. **Run It**
+### 3. **Configure Your API Key**
 
 ```bash
-python main.py
+# Copy the example environment file
+cp env.example .env
+
+# Edit .env with your Incredible API credentials
+INCREDIBLE_API_KEY=your_api_key_here
+USER_ID=your_user_id_here
 ```
 
-**That's it!** Each example is self-contained and ready to run.
+### 4. **Run Your First Example**
+
+```bash
+python 1_basic_chat.py
+```
+
+**That's it!** You're now making API calls with Incredible API. Continue with the other examples to learn more advanced features.
 
 ## ⚙️ **Setup Requirements**
 
-### Incredible API Account
+### Prerequisites
 
-1. **Sign up**: [https://incredible.one](https://incredible.one)
-2. **Get API key** from dashboard
-3. **Connect integrations** (Gmail, Google Sheets, Perplexity, etc.)
+- **Python 3.8+** installed on your system
+- **Incredible API Account**: Sign up at [https://incredible.one](https://incredible.one)
 
-### Common Environment Variables
+### Required Environment Variables
 
 ```bash
 INCREDIBLE_API_KEY=your_api_key_here
 USER_ID=your_user_id_here
 ```
 
-Each example includes specific setup instructions in its README.
+**Get these from your Incredible API dashboard after signing up.**
 
-## 📖 **How Each Example Works**
+### Optional Integrations (for advanced examples)
 
-Every folder follows the **Modal Labs pattern**:
+- **Gmail**: For email integration examples
+- **Perplexity AI**: For research functionality
+- **Weather API**: For function calling examples
+
+_See the detailed [Getting Started README](./01-getting-started/README.md) for complete setup instructions._
+
+## 📖 **Tutorial Structure**
+
+The getting-started folder is organized for progressive learning:
 
 ```
-email-automation/
-├── main.py           # Complete working script
-├── requirements.txt  # Python dependencies
-├── env.example      # Configuration template
-└── README.md        # Usage instructions
+01-getting-started/
+├── 1_basic_chat.py           # Start here - Basic chat completion
+├── 2_streaming_chat.py       # Real-time streaming responses
+├── 3_function_calling.py     # Extend AI with custom functions
+├── 4_integrations.py         # Connect to external services
+├── requirements.txt          # Python dependencies
+├── env.example              # Configuration template
+├── README.md                # Detailed tutorial guide
+└── Incredible_API_Postman_Collection.json  # API testing collection
 ```
 
-1. **Clone** the folder you want to try
-2. **Install** dependencies with `pip install -r requirements.txt`
-3. **Configure** your credentials in `.env`
-4. **Run** with `python main.py`
+**Learning Path:**
+
+1. **Start** with `1_basic_chat.py` to understand the fundamentals
+2. **Progress** through each numbered example in order
+3. **Configure** your credentials once in `.env`
+4. **Run** each script individually to see concepts in action
 
 ## 🤝 Contributing
 
-We welcome contributions! Whether it's:
+We welcome contributions to improve this tutorial! Whether it's:
 
-- New use case examples
-- Bug fixes or improvements
-- Integration guides
-- Documentation enhancements
+- **Tutorial improvements** - Making examples clearer or more comprehensive
+- **Bug fixes** - Fixing issues in the example code
+- **Additional examples** - Adding more learning scenarios
+- **Documentation** - Better explanations and setup guides
 
 Please read our [Contributing Guide](./CONTRIBUTING.md) to get started.
 
 ## 📖 Additional Resources
 
 - [**Official API Documentation**](https://docs.incredible.one)
-- [**Integration Reference**](https://docs.incredible.one/api-reference/integrations)
+- [**Chat Completion API Reference**](https://docs.incredible.one/api-reference/chat)
+- [**Integrations Reference**](https://docs.incredible.one/api-reference/integrations)
 - [**Community Forum**](https://community.incredible.one)
 - [**Support**](mailto:support@incredible.one)
 
@@ -216,4 +201,4 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 
 ---
 
-**Ready to automate your workflows?** Pick an example folder and start building in 2 minutes! 🚀
+**Ready to master the Incredible API?** Start with the [getting-started tutorial](./01-getting-started/) and build your first AI agent in 2 minutes! 🚀
