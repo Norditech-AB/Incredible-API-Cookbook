@@ -1,0 +1,318 @@
+{
+    "info": {
+        "name": "Incredible API - Getting Started (Updated)",
+        "description": "Complete collection for testing Incredible API chat completion endpoint.\n\nIMPORTANT: Response Format\n=========================\nThe API returns responses in this nested format:\n\n```json\n{\n  \"result\": {\n    \"response\": [\n      {\n        \"content\": \"AI response text here...\",\n        \"role\": \"assistant\"\n      }\n    ],\n    \"thinking\": \"AI reasoning process...\"\n  }\n}\n```\n\nTo extract the actual response text, use: `result.result.response[0].content`",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "variable": [
+        {
+            "key": "base_url",
+            "value": "https://api.incredible.one",
+            "type": "string"
+        },
+        {
+            "key": "api_key",
+            "value": "your_api_key_here",
+            "type": "string"
+        },
+        {
+            "key": "user_id",
+            "value": "your_user_id_here",
+            "type": "string"
+        }
+    ],
+    "item": [
+        {
+            "name": "1. Basic Chat Completion",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{api_key}}"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"model\": \"small-1\",\n    \"stream\": false,\n    \"system\": \"You are a helpful AI assistant.\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Hello! Can you explain what APIs are in simple terms?\"\n        }\n    ]\n}"
+                },
+                "url": {
+                    "raw": "{{base_url}}/v1/chat-completion",
+                    "host": ["{{base_url}}"],
+                    "path": ["v1", "chat-completion"]
+                }
+            },
+            "response": [
+                {
+                    "name": "Success Example",
+                    "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"model\": \"small-1\",\n    \"stream\": false,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"What is 2+2?\"\n        }\n    ]\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/v1/chat-completion",
+                            "host": ["{{base_url}}"],
+                            "path": ["v1", "chat-completion"]
+                        }
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "body": "{\n  \"result\": {\n    \"response\": [\n      {\n        \"content\": \"2 + 2 = 4\",\n        \"role\": \"assistant\"\n      }\n    ],\n    \"thinking\": \"This is a simple arithmetic question. 2 + 2 equals 4.\"\n  }\n}"
+                }
+            ]
+        },
+        {
+            "name": "2. Multiple Models - Small-1",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{api_key}}"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"model\": \"small-1\",\n    \"stream\": false,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"What is 2+2? Just give me the number.\"\n        }\n    ]\n}"
+                },
+                "url": {
+                    "raw": "{{base_url}}/v1/chat-completion",
+                    "host": ["{{base_url}}"],
+                    "path": ["v1", "chat-completion"]
+                }
+            }
+        },
+        {
+            "name": "3. Multiple Models - GPT-4o",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{api_key}}"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"model\": \"gpt-4o\",\n    \"stream\": false,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"What is 2+2? Just give me the number.\"\n        }\n    ]\n}"
+                },
+                "url": {
+                    "raw": "{{base_url}}/v1/chat-completion",
+                    "host": ["{{base_url}}"],
+                    "path": ["v1", "chat-completion"]
+                }
+            }
+        },
+        {
+            "name": "4. Multiple Models - Claude",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{api_key}}"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"model\": \"claude-3-5-sonnet-20241022\",\n    \"stream\": false,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"What is 2+2? Just give me the number.\"\n        }\n    ]\n}"
+                },
+                "url": {
+                    "raw": "{{base_url}}/v1/chat-completion",
+                    "host": ["{{base_url}}"],
+                    "path": ["v1", "chat-completion"]
+                }
+            }
+        },
+        {
+            "name": "5. Multi-turn Conversation",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{api_key}}"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"model\": \"small-1\",\n    \"stream\": false,\n    \"system\": \"You are a knowledgeable geography assistant.\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"What's the capital of France?\"\n        },\n        {\n            \"role\": \"assistant\",\n            \"content\": \"The capital of France is Paris.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"What's the population of that city?\"\n        }\n    ]\n}"
+                },
+                "url": {
+                    "raw": "{{base_url}}/v1/chat-completion",
+                    "host": ["{{base_url}}"],
+                    "path": ["v1", "chat-completion"]
+                }
+            }
+        },
+        {
+            "name": "6. Streaming Response",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{api_key}}"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"model\": \"small-1\",\n    \"stream\": true,\n    \"system\": \"You are a helpful assistant. Be detailed in your explanations.\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Explain how streaming responses work in APIs.\"\n        }\n    ]\n}"
+                },
+                "url": {
+                    "raw": "{{base_url}}/v1/chat-completion",
+                    "host": ["{{base_url}}"],
+                    "path": ["v1", "chat-completion"]
+                }
+            }
+        },
+        {
+            "name": "7. Function Calling",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{api_key}}"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"model\": \"small-1\",\n    \"stream\": false,\n    \"system\": \"You are a helpful assistant with access to various tools. Use the available functions when needed.\",\n    \"functions\": [\n        {\n            \"name\": \"get_current_time\",\n            \"description\": \"Get the current date and time\",\n            \"parameters\": {\n                \"type\": \"object\",\n                \"properties\": {},\n                \"required\": []\n            }\n        },\n        {\n            \"name\": \"calculate_circle_area\",\n            \"description\": \"Calculate the area of a circle given its radius\",\n            \"parameters\": {\n                \"type\": \"object\",\n                \"properties\": {\n                    \"radius\": {\n                        \"type\": \"number\",\n                        \"description\": \"The radius of the circle\"\n                    }\n                },\n                \"required\": [\"radius\"]\n            }\n        }\n    ],\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"What time is it right now? Also, what's the area of a circle with radius 5?\"\n        }\n    ]\n}"
+                },
+                "url": {
+                    "raw": "{{base_url}}/v1/chat-completion",
+                    "host": ["{{base_url}}"],
+                    "path": ["v1", "chat-completion"]
+                }
+            }
+        },
+        {
+            "name": "8. Gmail Integration",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{api_key}}"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"model\": \"small-1\",\n    \"stream\": false,\n    \"system\": \"You are a helpful email assistant. Use Gmail functions to help users manage their email.\",\n    \"integrations\": [\n        {\n            \"id\": \"gmail\",\n            \"features\": [\"gmail_search\", \"GMAIL_SEND_EMAIL\"]\n        }\n    ],\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Search my Gmail for any emails about 'meeting' from the last 3 days. My user_id is {{user_id}}\"\n        }\n    ]\n}"
+                },
+                "url": {
+                    "raw": "{{base_url}}/v1/chat-completion",
+                    "host": ["{{base_url}}"],
+                    "path": ["v1", "chat-completion"]
+                }
+            }
+        },
+        {
+            "name": "9. Custom System Prompt - Pirate",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{api_key}}"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"model\": \"small-1\",\n    \"stream\": false,\n    \"system\": \"You are a helpful pirate assistant. Always talk like a pirate and end responses with 'Arr!'\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"How do I install Python packages?\"\n        }\n    ]\n}"
+                },
+                "url": {
+                    "raw": "{{base_url}}/v1/chat-completion",
+                    "host": ["{{base_url}}"],
+                    "path": ["v1", "chat-completion"]
+                }
+            }
+        },
+        {
+            "name": "10. Error Test - Invalid Model",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{api_key}}"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"model\": \"invalid-model-name\",\n    \"stream\": false,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"This should fail\"\n        }\n    ]\n}"
+                },
+                "url": {
+                    "raw": "{{base_url}}/v1/chat-completion",
+                    "host": ["{{base_url}}"],
+                    "path": ["v1", "chat-completion"]
+                }
+            },
+            "response": [
+                {
+                    "name": "Model Not Found Error",
+                    "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"model\": \"invalid-model-name\",\n    \"stream\": false,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"This should fail\"\n        }\n    ]\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/v1/chat-completion",
+                            "host": ["{{base_url}}"],
+                            "path": ["v1", "chat-completion"]
+                        }
+                    },
+                    "status": "Bad Request",
+                    "code": 400,
+                    "body": "{\n  \"error\": \"Model not found\"\n}"
+                }
+            ]
+        }
+    ]
+}

@@ -13,7 +13,30 @@ Create AI agents that integrate with **up to 3 applications** to automate comple
 - **Research automation** using Perplexity AI + data storage
 - **Financial dashboards** with real-time monitoring
 
-## 🚀 **Executable Examples**
+## 🎓 **Start Here: Getting Started**
+
+**New to Incredible API?** Begin with our step-by-step tutorial:
+
+### 📚 **[Getting Started Guide](./getting-started/)**
+
+**Learn the chat completion API fundamentals**
+
+```bash
+cd getting-started && python 1_basic_chat.py
+```
+
+Progressive tutorial covering:
+
+1. **Basic Chat** - Simple requests and responses
+2. **Streaming** - Real-time response generation
+3. **Function Calling** - Extend AI with custom functions
+4. **Integrations** - Use pre-built service connections
+
+**Start here before trying the advanced examples below!**
+
+---
+
+## 🚀 **Advanced Examples**
 
 Each folder is a **complete, runnable project**:
 
@@ -101,12 +124,18 @@ cd content-generator && python main.py "AI trends"
 
 ## 🚀 **Quick Start - 2 Minutes to Running**
 
-### 1. **Choose an Example**
+### 1. **Choose Your Starting Point**
 
-Pick any folder that interests you:
+**New to Incredible API?** Start with the fundamentals:
 
 ```bash
 git clone https://github.com/yourusername/incredible-api-cookbook.git
+cd incredible-api-cookbook/getting-started
+```
+
+**Ready for advanced examples?** Pick any cookbook folder:
+
+```bash
 cd incredible-api-cookbook/email-automation  # or any other folder
 ```
 
