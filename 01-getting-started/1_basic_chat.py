@@ -137,8 +137,9 @@ def multiple_models_example():
     # Different models to test
     models_to_test = [
         "small-1",
-        "gpt-4o", 
-        "claude-3-5-sonnet-20241022"
+        "big-1", 
+        "huge-1",
+        "tiny-1"
     ]
     
     # Simple question
