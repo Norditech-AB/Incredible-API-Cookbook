@@ -1,345 +1,251 @@
 # Getting Started with Incredible API
 
-**Learn the fundamentals of the Incredible API chat completion endpoint through hands-on examples.**
+**Learn the fundamentals step-by-step with simple, easy-to-understand examples.**
 
-Start here before diving into the advanced cookbook examples! This section covers all the core concepts you need to understand.
+Each file focuses on one concept so you can learn at your own pace!
 
 ## 🎯 What You'll Learn
 
-1. **Basic Chat Completion** - Simple requests and responses
-2. **Streaming vs Non-Streaming** - Real-time vs batch responses
-3. **Function Calling** - Extend AI with custom functions
-4. **Integrations** - Use pre-built functions for popular services
+We've split everything into 6 simple steps:
+
+1. **🔰 Basic Chat** - Your first API call (super simple!)
+2. **🤖 Multiple Models** - Try different AI models
+3. **💬 Conversations** - Chat back and forth with AI
+4. **🌊 Streaming** - See responses appear in real-time
+5. **⚡ Functions** - Give AI special powers
+6. **🔌 Integrations** - Connect to real services
 
 ## ⚡ Quick Start
 
 ```bash
 # 1. Navigate to getting started
-cd getting-started
+cd 01-getting-started
 
 # 2. Install dependencies
 pip install -r requirements.txt
 
-# 3. Set up configuration
+# 3. Set up your API key
 cp env.example .env
 # Edit .env with your API key and user ID
 
-# 4. Run examples in order
+# 4. Start with the first example
 python 1_basic_chat.py
-python 2_streaming_chat.py
-python 3_function_calling.py
-python 4_integrations.py
 ```
 
-## 📚 Progressive Learning Path
+**That's it!** Continue with each numbered file in order.
 
-### 1️⃣ Basic Chat (`1_basic_chat.py`)
+## 📁 Tutorial Files
 
-**Learn the fundamentals**
+### 🔰 **1_basic_chat.py** - Your First API Call
 
-- Making your first API request
-- Understanding request/response format
-- Testing different models
-- Using custom system prompts
-- Multi-turn conversations
+**What it does:** Send a simple message to AI and get a response back.
 
-**Key Concepts:**
+**Perfect for:** Complete beginners who want to see the API work.
 
-```python
-{
-    "model": "small-1",           # Which AI model to use
-    "stream": False,                  # Non-streaming for simplicity
-    "system": "You are a helpful...", # System prompt/personality
-    "messages": [                     # Conversation history
-        {"role": "user", "content": "Hello!"}
-    ]
-}
+```bash
+python 1_basic_chat.py
 ```
 
-### 2️⃣ Streaming Chat (`2_streaming_chat.py`)
-
-**Real-time responses**
-
-- How streaming works (Server-Sent Events)
-- Processing chunks as they arrive
-- Building responsive chat interfaces
-- Performance comparison
-
-**Streaming Benefits:**
-
-- ⚡ **Faster perceived response** - Content appears immediately
-- 🎯 **Better UX** - Users see progress in real-time
-- 📱 **Responsive apps** - No waiting for complete response
-
-### 3️⃣ Function Calling (`3_function_calling.py`)
-
-**Extend AI capabilities**
-
-- Defining functions for the AI
-- Parameter specifications
-- Function execution workflow
-- Error handling
-
-**Function Definition:**
-
-```python
-{
-    "name": "get_weather",
-    "description": "Get weather for a city",
-    "parameters": {
-        "type": "object",
-        "properties": {
-            "city": {"type": "string", "description": "City name"}
-        },
-        "required": ["city"]
-    }
-}
-```
-
-### 4️⃣ Integrations (`4_integrations.py`)
-
-**Use pre-built services**
-
-- Available integrations (Gmail, Sheets, etc.)
-- Feature selection
-- Multi-integration workflows
-- Authentication requirements
-
-**Integration Usage:**
-
-```python
-"integrations": [
-    {
-        "id": "gmail",
-        "features": ["gmail_search", "GMAIL_SEND_EMAIL"]
-    }
-]
-```
-
-## 🔧 API Reference
-
-### Chat Completion Endpoint
+**You'll see:**
 
 ```
-POST /v1/chat-completion
+🎉 Welcome to Incredible API!
+💬 You: Hello! Can you say hi back to me?
+🚀 Sending your message to AI...
+🤖 AI: Hello there! Nice to meet you! 👋
+✅ Success! You've made your first API call!
 ```
 
-### Required Parameters
+---
 
-- `model` - AI model to use (`small-1` currently available, `tiny-1`, `big-1`, `huge-1` coming soon)
-- `messages` - Array of conversation messages
+### 🤖 **2_multiple_models.py** - Try Different AI Models
 
-### Optional Parameters
+**What it does:** Test different AI models to see how they respond.
 
-- `stream` - Enable streaming responses (default: `true`)
-- `system` - System prompt (default: "You are a helpful assistant.")
-- `functions` - Array of custom functions
-- `integrations` - Array of integration configurations
+**Perfect for:** Learning about available models and their differences.
 
-### Response Formats
+```bash
+python 2_multiple_models.py
+```
 
-**Non-Streaming:**
+**You'll see:**
+
+```
+🤖 Testing Different AI Models
+📋 Available Models:
+   small-1: ✅ Available now - Fast and efficient
+   tiny-1: 🔜 Coming soon - Ultra fast
+   big-1: 🔜 Coming soon - More powerful
+   huge-1: 🔜 Coming soon - Most advanced
+```
+
+---
+
+### 💬 **3_conversation.py** - Chat Back and Forth
+
+**What it does:** Have a real conversation where AI remembers what you talked about.
+
+**Perfect for:** Understanding how conversations work.
+
+```bash
+python 3_conversation.py
+```
+
+**You'll see:**
+
+```
+👤 You: What's the capital of France?
+🤖 AI: The capital of France is Paris.
+👤 You: What's the population of that city?
+🤖 AI: Paris has approximately 2.1 million people...
+✨ Notice how AI remembered we were talking about Paris!
+```
+
+---
+
+### 🌊 **4_streaming_chat.py** - Real-Time Responses
+
+**What it does:** See AI respond word-by-word like ChatGPT.
+
+**Perfect for:** Learning the difference between streaming and regular responses.
+
+```bash
+python 4_streaming_chat.py
+```
+
+**You'll see responses appear gradually, just like in ChatGPT!**
+
+---
+
+### ⚡ **5_function_calling.py** - Give AI Special Powers
+
+**What it does:** Let AI call your custom functions to do calculations and get data.
+
+**Perfect for:** Understanding how to extend AI capabilities.
+
+```bash
+python 5_function_calling.py
+```
+
+**You'll see:**
+
+```
+💬 You: What is 25 + 17?
+🔧 AI wants to use function: add_numbers
+🧮 Calculating: 25 + 17 = 42
+🤖 AI: The answer is 42!
+```
+
+---
+
+### 🔌 **6_integrations.py** - Connect to Real Services
+
+**What it does:** Connect AI to Gmail, research tools, and other services.
+
+**Perfect for:** Learning how to build real-world AI applications.
+
+```bash
+python 6_integrations.py
+```
+
+**You'll see AI sending emails and doing research!**
+
+## 🛠️ Setup Details
+
+### Prerequisites
+
+- Python 3.8 or newer
+- Internet connection
+- Incredible API account
+
+### Environment Variables
+
+Create a `.env` file with:
+
+```bash
+INCREDIBLE_API_KEY=your_api_key_here
+USER_ID=your_user_id_here
+```
+
+**Get these from your [Incredible API dashboard](https://incredible.one)**
+
+### Dependencies
+
+All examples use these Python packages:
+
+```
+requests>=2.31.0
+python-dotenv>=1.0.0
+```
+
+Install with: `pip install -r requirements.txt`
+
+## 🔧 Troubleshooting
+
+### "Missing API key" Error
+
+- Make sure `.env` file exists
+- Check that `INCREDIBLE_API_KEY` is set correctly
+- Get your API key from the Incredible API dashboard
+
+### "Connection Error"
+
+- Check your internet connection
+- Verify API key is valid
+- Try again in a few minutes
+
+### Integration Errors (File 6)
+
+- Gmail: Connect Gmail integration in your dashboard
+- Perplexity: Add Perplexity API key in your dashboard
+
+## 📚 API Response Formats
+
+### Regular Responses
 
 ```json
 {
   "result": {
     "response": [
       {
-        "content": "AI response content here...",
+        "content": "AI response here...",
         "role": "assistant"
       }
-    ],
-    "thinking": "AI reasoning process..."
+    ]
   }
 }
 ```
 
-**To extract the response text:** Use `result.result.response[0].content`
-
-**Streaming (Server-Sent Events):**
+### Streaming Responses
 
 ```
-data: {"content": {"type": "thinking_chunk", "content": "reasoning..."}}
-data: {"content": {"type": "content_chunk", "content": "response text"}}
+data: {"content": {"type": "content_chunk", "content": "word"}}
+data: {"content": {"type": "content_chunk", "content": " by"}}
+data: {"content": {"type": "content_chunk", "content": " word"}}
 data: {"content": "[DONE]"}
 ```
 
-**To extract streaming text:** Use `chunk_data.content.content`  
-**Note:** Can filter out `thinking_chunk` types for cleaner output.
+_The examples handle all response parsing for you!_
 
-## 🚀 Available Models
+## 🎉 Next Steps
 
-### Currently Available
+After completing all 6 tutorials, you'll be ready to:
 
-| Model     | Provider   | Best For              |
-| --------- | ---------- | --------------------- |
-| `small-1` | Incredible | Fast, efficient tasks |
+- Build your own AI applications
+- Create custom integrations
+- Understand advanced API features
+- Explore the other cookbook examples
 
-### Upcoming Models
+**Congratulations on learning the Incredible API! 🚀**
 
-| Model    | Provider   | Best For                  |
-| -------- | ---------- | ------------------------- |
-| `tiny-1` | Incredible | Ultra-fast, simple tasks  |
-| `big-1`  | Incredible | Complex reasoning         |
-| `huge-1` | Incredible | Advanced analysis & logic |
+## 💡 Tips for Success
 
-## 🔌 Available Integrations
-
-| Integration     | ID                | Key Features                |
-| --------------- | ----------------- | --------------------------- |
-| Gmail           | `gmail`           | Email search, send, read    |
-| Google Sheets   | `google_sheets`   | Create, update, read sheets |
-| Perplexity AI   | `perplexity`      | Real-time research          |
-| Asana           | `asana`           | Task and project management |
-| Google Calendar | `google_calendar` | Event management            |
-| Google Docs     | `google_docs`     | Document creation           |
-
-## 💡 Best Practices
-
-### System Prompts
-
-```python
-# ✅ Good - Specific and actionable
-"You are a Python expert. Provide code examples and explain concepts clearly."
-
-# ❌ Bad - Too vague
-"You are helpful."
-```
-
-### Message Structure
-
-```python
-# ✅ Good - Clear roles and content
-[
-    {"role": "user", "content": "How do I install Python?"},
-    {"role": "assistant", "content": "Here's how to install Python..."},
-    {"role": "user", "content": "What about pip?"}
-]
-```
-
-### Function Definitions
-
-```python
-# ✅ Good - Clear description and parameters
-{
-    "name": "calculate_tax",
-    "description": "Calculate tax amount for a given income and rate",
-    "parameters": {
-        "type": "object",
-        "properties": {
-            "income": {"type": "number", "description": "Annual income"},
-            "rate": {"type": "number", "description": "Tax rate as decimal (0.25 for 25%)"}
-        },
-        "required": ["income", "rate"]
-    }
-}
-```
-
-### Error Handling
-
-```python
-try:
-    response = requests.post(url, json=data, headers=headers)
-    response.raise_for_status()
-    result = response.json()
-
-except requests.exceptions.RequestException as e:
-    print(f"API Error: {e}")
-    # Handle specific error cases
-```
-
-## 🎓 Learning Progression
-
-1. **Start Here** → `getting-started/` (You are here!)
-2. **Simple Examples** → Pick any cookbook folder
-3. **Advanced Workflows** → Combine multiple integrations
-4. **Custom Development** → Build your own applications
-
-## 🔗 Integration Setup
-
-Before using integrations in examples 4+, you'll need:
-
-### 1. Get API Access
-
-- Sign up at [Incredible Dashboard](https://incredible.one)
-- Get your API key and User ID
-- Add to `.env` file
-
-### 2. Connect Integrations (OAuth)
-
-For each integration you want to use:
-
-- Gmail: Google OAuth for email access
-- Google Sheets: Google OAuth for spreadsheet access
-- Perplexity: API key for research capabilities
-- Asana: OAuth for task management
-- Others: Check individual integration requirements
-
-### 3. Test Connection
-
-Use the getting-started examples to verify:
-
-- API credentials work
-- Integrations are properly connected
-- Functions execute successfully
-
-## 🛠️ Troubleshooting
-
-### Common Issues
-
-**"Model not found"**
-
-- Check model name spelling
-- Verify model is available in your plan
-- Try `small-1` as default
-
-**"Integration not found"**
-
-- Verify integration ID is correct
-- Check if integration is connected in dashboard
-- Ensure OAuth flow is completed
-
-**"Authorization failed"**
-
-- Check API key is correct and active
-- Verify `Bearer ` prefix in Authorization header
-- Ensure user_id matches your account
-
-**"Functions not working"**
-
-- Verify function definition syntax
-- Check parameter types and requirements
-- Test with simpler functions first
-
-### Getting Help
-
-1. **Check Examples** - Each file has detailed error handling
-2. **Review API Docs** - Check the main API documentation
-3. **Test Incrementally** - Start simple, add complexity gradually
-4. **Verify Setup** - Ensure all credentials and integrations are configured
-
-## ➡️ Next Steps
-
-Once you've completed all getting-started examples:
-
-### Simple Workflows
-
-- **email-automation** - Automated email responses
-- **lead-management** - Lead capture and follow-up
-- **research-reporter** - AI-powered research reports
-
-### Advanced Workflows
-
-- **meeting-organizer** - Meeting extraction and calendar management
-- **financial-dashboard** - Market analysis and reporting
-- **content-generator** - Multi-format content creation
-
-### Custom Development
-
-- Combine multiple integrations
-- Build custom functions
-- Create specialized workflows for your use case
+1. **Go in order** - Each example builds on the previous one
+2. **Read the comments** - They explain what each line does
+3. **Experiment** - Try changing messages and see what happens
+4. **Don't skip steps** - Each concept is important
+5. **Have fun** - You're building with cutting-edge AI!
 
 ---
 
-**Ready to build amazing AI-powered applications? Let's start with the basics! 🚀**
+**Ready to start?** Run `python 1_basic_chat.py` and make your first API call! 🎊
