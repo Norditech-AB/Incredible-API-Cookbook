@@ -57,11 +57,17 @@ cd 01-getting-started && python 1_basic_chat.py
 - Examples: math calculations, weather data
 - Extend AI capabilities
 
-#### 🔌 **[6. Integrations](./01-getting-started/6_integrations.py)** - Connect to Real Services
+#### 📧 **[6. Gmail Integration](./01-getting-started/6_gmail_integration.py)** - Send Emails with AI
 
-- Send emails through Gmail
-- Do research with Perplexity AI
-- Connect AI to the real world
+- Connect AI to Gmail
+- Send emails automatically
+- Build email assistants
+
+#### 🔍 **[7. Perplexity Integration](./01-getting-started/7_perplexity_integration.py)** - AI Research Assistant
+
+- Do intelligent research with AI
+- Get real-time information
+- Build research bots
 
 **Everything you need to start building with Incredible API!**
 
@@ -175,7 +181,8 @@ The getting-started folder is organized for progressive learning:
 ├── 3_conversation.py         # 💬 Multi-turn conversations
 ├── 4_streaming_chat.py       # 🌊 Real-time streaming responses
 ├── 5_function_calling.py     # ⚡ Give AI special powers
-├── 6_integrations.py         # 🔌 Connect to real services
+├── 6_gmail_integration.py    # 📧 Send emails with AI
+├── 7_perplexity_integration.py # 🔍 AI research assistant
 ├── requirements.txt          # Python dependencies
 ├── env.example              # Configuration template
 ├── README.md                # Detailed tutorial guide

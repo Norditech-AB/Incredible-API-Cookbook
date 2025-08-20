@@ -179,7 +179,7 @@ def main():
     print("   - Functions gave AI access to real calculations and data")
     print("   - AI used function results to give better answers")
     print()
-    print("💡 Next step: Try 6_integrations.py to connect with real services")
+    print("💡 Next step: Try 6_gmail_integration.py to send emails with AI")
 
 if __name__ == "__main__":
     main()

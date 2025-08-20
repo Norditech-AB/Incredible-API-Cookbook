@@ -6,14 +6,15 @@ Each file focuses on one concept so you can learn at your own pace!
 
 ## 🎯 What You'll Learn
 
-We've split everything into 6 simple steps:
+We've split everything into 7 simple steps:
 
 1. **🔰 Basic Chat** - Your first API call (super simple!)
 2. **🤖 Multiple Models** - Try different AI models
 3. **💬 Conversations** - Chat back and forth with AI
 4. **🌊 Streaming** - See responses appear in real-time
 5. **⚡ Functions** - Give AI special powers
-6. **🔌 Integrations** - Connect to real services
+6. **📧 Gmail** - Send emails with AI
+7. **🔍 Research** - AI research assistant
 
 ## ⚡ Quick Start
 
@@ -138,17 +139,37 @@ python 5_function_calling.py
 
 ---
 
-### 🔌 **6_integrations.py** - Connect to Real Services
+### 📧 **6_gmail_integration.py** - Send Emails with AI
 
-**What it does:** Connect AI to Gmail, research tools, and other services.
+**What it does:** Connect AI to Gmail so it can send emails automatically.
 
-**Perfect for:** Learning how to build real-world AI applications.
+**Perfect for:** Building AI assistants that can communicate via email.
 
 ```bash
-python 6_integrations.py
+python 6_gmail_integration.py
 ```
 
-**You'll see AI sending emails and doing research!**
+**You'll see:**
+
+```
+📤 Sending email to: test@example.com
+✅ Email sent successfully!
+🎉 Your AI can now send emails!
+```
+
+---
+
+### 🔍 **7_perplexity_integration.py** - AI Research Assistant
+
+**What it does:** Use AI to do intelligent research on any topic.
+
+**Perfect for:** Building AI that can gather real-time information.
+
+```bash
+python 7_perplexity_integration.py
+```
+
+**You'll see AI researching topics and providing detailed answers with sources!**
 
 ## 🛠️ Setup Details
 
