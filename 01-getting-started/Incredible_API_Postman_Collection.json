@@ -1,7 +1,7 @@
 {
     "info": {
-        "name": "Incredible API - Getting Started (Updated)",
-        "description": "Complete collection for testing Incredible API chat completion endpoint.\n\nIMPORTANT: Response Format\n=========================\nThe API returns responses in this nested format:\n\n```json\n{\n  \"result\": {\n    \"response\": [\n      {\n        \"content\": \"AI response text here...\",\n        \"role\": \"assistant\"\n      }\n    ],\n    \"thinking\": \"AI reasoning process...\"\n  }\n}\n```\n\nTo extract the actual response text, use: `result.result.response[0].content`",
+        "name": "Incredible API - Getting Started Tutorial",
+        "description": "Complete collection for the 7-part Incredible API tutorial.\n\nThis collection matches the tutorial files:\n1. Basic Chat (1_basic_chat.py)\n2. Multiple Models (2_multiple_models.py)\n3. Conversations (3_conversation.py)\n4. Streaming Chat (4_streaming_chat.py)\n5. Function Calling (5_function_calling.py)\n6. Gmail Integration (6_gmail_integration.py)\n7. Perplexity Integration (7_perplexity_integration.py)\n\nIMPORTANT: Response Format\n=========================\nThe API returns responses in this nested format:\n\n```json\n{\n  \"result\": {\n    \"response\": [\n      {\n        \"content\": \"AI response text here...\",\n        \"role\": \"assistant\"\n      }\n    ],\n    \"thinking\": \"AI reasoning process...\"\n  }\n}\n```\n\nTo extract the actual response text, use: `result.result.response[0].content`",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
     },
     "variable": [
@@ -94,7 +94,7 @@
             }
         },
         {
-            "name": "3. Multiple Models - GPT-4o",
+            "name": "3. Multiple Models - Big-1 (Coming Soon)",
             "request": {
                 "method": "POST",
                 "header": [
@@ -109,7 +109,7 @@
                 ],
                 "body": {
                     "mode": "raw",
-                    "raw": "{\n    \"model\": \"gpt-4o\",\n    \"stream\": false,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"What is 2+2? Just give me the number.\"\n        }\n    ]\n}"
+                    "raw": "{\n    \"model\": \"big-1\",\n    \"stream\": false,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"What is 2+2? Just give me the number.\"\n        }\n    ]\n}"
                 },
                 "url": {
                     "raw": "{{base_url}}/v1/chat-completion",
@@ -119,7 +119,7 @@
             }
         },
         {
-            "name": "4. Multiple Models - Claude",
+            "name": "4. Multiple Models - Tiny-1 (Coming Soon)",
             "request": {
                 "method": "POST",
                 "header": [
@@ -134,7 +134,7 @@
                 ],
                 "body": {
                     "mode": "raw",
-                    "raw": "{\n    \"model\": \"claude-3-5-sonnet-20241022\",\n    \"stream\": false,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"What is 2+2? Just give me the number.\"\n        }\n    ]\n}"
+                    "raw": "{\n    \"model\": \"tiny-1\",\n    \"stream\": false,\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"What is 2+2? Just give me the number.\"\n        }\n    ]\n}"
                 },
                 "url": {
                     "raw": "{{base_url}}/v1/chat-completion",
@@ -144,7 +144,7 @@
             }
         },
         {
-            "name": "5. Multi-turn Conversation",
+            "name": "5. Conversation Example",
             "request": {
                 "method": "POST",
                 "header": [
@@ -169,7 +169,7 @@
             }
         },
         {
-            "name": "6. Streaming Response",
+            "name": "6. Streaming Chat Example",
             "request": {
                 "method": "POST",
                 "header": [
@@ -194,7 +194,7 @@
             }
         },
         {
-            "name": "7. Function Calling",
+            "name": "7. Function Calling Example",
             "request": {
                 "method": "POST",
                 "header": [
@@ -219,7 +219,7 @@
             }
         },
         {
-            "name": "8. Gmail Integration",
+            "name": "8. Gmail Integration - Send Email",
             "request": {
                 "method": "POST",
                 "header": [
@@ -234,17 +234,42 @@
                 ],
                 "body": {
                     "mode": "raw",
-                    "raw": "{\n    \"model\": \"small-1\",\n    \"stream\": false,\n    \"system\": \"You are a helpful email assistant. Use Gmail functions to help users manage their email.\",\n    \"integrations\": [\n        {\n            \"id\": \"gmail\",\n            \"features\": [\"gmail_search\", \"GMAIL_SEND_EMAIL\"]\n        }\n    ],\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Search my Gmail for any emails about 'meeting' from the last 3 days. My user_id is {{user_id}}\"\n        }\n    ]\n}"
+                    "raw": "{\n    \"user_id\": \"{{user_id}}\",\n    \"feature_name\": \"GMAIL_SEND_EMAIL\",\n    \"inputs\": {\n        \"to\": \"test@example.com\",\n        \"subject\": \"Test from Incredible API via Postman! 🚀\",\n        \"body\": \"Hello!\\n\\nThis email was sent using the Incredible API through Postman.\\n\\nThis demonstrates the Gmail integration capability.\\n\\nBest regards,\\nYour AI Assistant 🤖\\n\\n---\\nPowered by Incredible API\"\n    }\n}"
                 },
                 "url": {
-                    "raw": "{{base_url}}/v1/chat-completion",
+                    "raw": "{{base_url}}/v1/integrations/gmail/execute",
                     "host": ["{{base_url}}"],
-                    "path": ["v1", "chat-completion"]
+                    "path": ["v1", "integrations", "gmail", "execute"]
                 }
             }
         },
         {
-            "name": "9. Custom System Prompt - Pirate",
+            "name": "9. Perplexity Integration - Research",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{api_key}}"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"user_id\": \"{{user_id}}\",\n    \"feature_name\": \"PERPLEXITY_SEARCH\",\n    \"inputs\": {\n        \"query\": \"What are the latest trends in artificial intelligence 2024?\"\n    }\n}"
+                },
+                "url": {
+                    "raw": "{{base_url}}/v1/integrations/perplexity/execute",
+                    "host": ["{{base_url}}"],
+                    "path": ["v1", "integrations", "perplexity", "execute"]
+                }
+            }
+        },
+        {
+            "name": "10. Custom System Prompt - Pirate",
             "request": {
                 "method": "POST",
                 "header": [
@@ -269,7 +294,7 @@
             }
         },
         {
-            "name": "10. Error Test - Invalid Model",
+            "name": "11. Error Test - Invalid Model",
             "request": {
                 "method": "POST",
                 "header": [
