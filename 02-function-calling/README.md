@@ -14,6 +14,7 @@ Each example builds upon the previous one, teaching you progressively advanced f
 2. **🛠️ Multiple Tools** - Weather, calculator, and time functions
 3. **📊 JSON Extraction** - Using tools for structured data output
 4. **🚀 Advanced Workflow** - Multi-step function calling with real applications
+5. **📈 Stock Analysis** - Real-world example with Yahoo Finance API integration
 
 ## ⚡ Quick Start
 
@@ -32,7 +33,8 @@ cp env.example .env
 python3 1_simple_calculator.py      # ✅ Start here - basic function calling
 python3 2_multiple_tools.py         # ✅ Then this - AI choosing between tools
 python3 3_json_extraction.py        # ✅ Then this - structured data extraction
-python3 4_advanced_workflow.py      # ✅ Finally - complex multi-step workflows
+python3 4_advanced_workflow.py      # ✅ Then this - complex multi-step workflows
+python3 5_stock_analysis.py         # 🎉 Fun finale - real-world stock analysis!
 ```
 
 ## 🔧 How Function Calling Works
@@ -184,6 +186,60 @@ python3 4_advanced_workflow.py
 
 **Example workflow:** AI schedules a meeting, sends confirmation email, and creates follow-up tasks.
 
+---
+
+### 📈 **5_stock_analysis.py** - AI-Powered Stock Analysis (Fun Real-World Example!)
+
+**What it does:** Creates an intelligent stock analysis assistant using real Yahoo Finance data.
+
+**Perfect for:** Seeing function calling in action with real-world financial APIs.
+
+```bash
+python3 5_stock_analysis.py
+```
+
+**🎯 Features:**
+
+- **Real stock data** from Yahoo Finance API (same data professionals use)
+- **AI analysis** of market trends, technical indicators, and investment opportunities
+- **Technical indicators** like moving averages, RSI, support/resistance levels
+- **Multi-stock comparison** side-by-side analysis
+- **Investment recommendations** with risk assessment
+- **Educational explanations** of financial concepts in simple terms
+
+**You'll see AI analyze stocks like:**
+
+```
+📈 AI STOCK ANALYSIS REPORT
+=============================================================
+Based on the current data for Apple (AAPL):
+
+💰 Current Price: $193.58 (+1.23%)
+📊 Technical Indicators:
+   • RSI: 45.2 (Neutral - room for growth)
+   • 20-day SMA: $190.45 (Price above average - bullish signal)
+   • Support Level: $185.20 | Resistance: $198.50
+
+📈 Investment Analysis:
+Apple shows solid fundamentals with a P/E ratio of 28.5 and strong market
+position. The stock is currently in a neutral RSI zone, suggesting it's
+neither overbought nor oversold...
+
+⚠️ Risks: Market volatility, regulatory concerns
+🚀 Opportunities: Strong ecosystem, services growth
+=============================================================
+```
+
+**🌟 Why This Example is Special:**
+
+- **Real-world integration** with financial APIs
+- **Educational value** - teaches both AI and finance concepts
+- **Practical application** - actually useful for investment research
+- **Advanced function chaining** - AI automatically chooses which analysis tools to use
+- **Professional-grade data** - same Yahoo Finance API used by trading platforms
+
+**Required:** `pip install yfinance` (automatically included in requirements.txt)
+
 ## 🛠️ Setup Details
 
 ### Prerequisites
@@ -206,9 +262,12 @@ USER_ID=your_user_id_here
 ```
 requests>=2.31.0
 python-dotenv>=1.0.0
+yfinance>=0.2.18        # For stock analysis example
 ```
 
 Install with: `pip3 install -r requirements.txt`
+
+**Note:** The `yfinance` library is required for the stock analysis example and provides access to Yahoo Finance data.
 
 ## 💡 Key Concepts
 

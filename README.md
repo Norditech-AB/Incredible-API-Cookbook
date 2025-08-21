@@ -106,6 +106,14 @@ cd 02-function-calling && python3 1_simple_calculator.py
 - Build complex business process automation
 - Meeting scheduling with email confirmations and task creation
 
+#### 📈 **[5. Stock Analysis](./02-function-calling/5_stock_analysis.py)** - Real-World Financial AI Assistant
+
+- **🎉 Fun, practical example!** Analyze real stocks with Yahoo Finance data
+- AI-powered investment analysis with technical indicators
+- Compare multiple stocks and get investment recommendations
+- Educational explanations of financial concepts
+- Shows function calling with real-world APIs
+
 **Function calling enables AI to DO things, not just talk!**
 
 ---
