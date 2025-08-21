@@ -1,7 +1,7 @@
 {
     "info": {
         "name": "Incredible API - Getting Started Tutorial",
-        "description": "Complete collection for the 7-part Incredible API tutorial.\n\nThis collection matches the tutorial files:\n1. Basic Chat (1_basic_chat.py)\n2. Multiple Models (2_multiple_models.py)\n3. Conversations (3_conversation.py)\n4. Streaming Chat (4_streaming_chat.py)\n5. Function Calling (5_function_calling.py)\n6. Gmail Integration (6_gmail_integration.py)\n7. Perplexity Integration (7_perplexity_integration.py)\n\nIMPORTANT: Response Format\n=========================\nThe API returns responses in this nested format:\n\n```json\n{\n  \"result\": {\n    \"response\": [\n      {\n        \"content\": \"AI response text here...\",\n        \"role\": \"assistant\"\n      }\n    ],\n    \"thinking\": \"AI reasoning process...\"\n  }\n}\n```\n\nTo extract the actual response text, use: `result.result.response[0].content`",
+        "description": "Complete collection for the 8-part Incredible API tutorial.\n\n🌟 START HERE: Hello World (Request 0)\n\nThis collection matches the tutorial files:\n0. Hello World (0_hello_world.py) - Perfect for beginners!\n1. Basic Chat (1_basic_chat.py)\n2. Multiple Models (2_multiple_models.py)\n3. Conversations (3_conversation.py)\n4. Streaming Chat (4_streaming_chat.py)\n5. Function Calling (5_function_calling.py)\n6. Gmail Integration (6_gmail_integration.py)\n7. Perplexity Integration (7_perplexity_integration.py)\n\nIMPORTANT: Response Format\n=========================\nThe API returns responses in this nested format:\n\n```json\n{\n  \"result\": {\n    \"response\": [\n      {\n        \"content\": \"AI response text here...\",\n        \"role\": \"assistant\"\n      }\n    ],\n    \"thinking\": \"AI reasoning process...\"\n  }\n}\n```\n\nTo extract the actual response text, use: `result.result.response[0].content`",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
     },
     "variable": [
@@ -22,6 +22,32 @@
         }
     ],
     "item": [
+        {
+            "name": "0. Hello World! (Start Here)",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{api_key}}"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"model\": \"small-1\",\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Hello! What can you help me with?\"\n        }\n    ]\n}"
+                },
+                "url": {
+                    "raw": "{{base_url}}/v1/chat-completion",
+                    "host": ["{{base_url}}"],
+                    "path": ["v1", "chat-completion"]
+                },
+                "description": "🌟 Your very first API call! This matches the 0_hello_world.py tutorial.\n\nPerfect for:\n• Complete beginners\n• Non-technical users\n• Anyone new to APIs\n\nThis simple request shows you how to:\n1. Send a basic question to AI\n2. Get a helpful response back\n3. Understand what just happened\n\nTry this first to see the magic of AI APIs! ✨"
+            }
+        },
         {
             "name": "1. Basic Chat Completion",
             "request": {
