@@ -54,6 +54,7 @@ def hello_incredible():
     # Step 4: Package your question
     data = {
         "model": "small-1",           # Which AI brain to use
+        "stream": False,              # Get simple response, not streaming
         "messages": [
             {
                 "role": "user",       # You are the user
@@ -73,15 +74,21 @@ def hello_incredible():
         
         # Step 6: Check if everything went well
         if response.status_code == 200:
-            # Success! The AI responded
-            result = response.json()
-            
-            # Extract the AI's response (dig into the nested response)
-            ai_response = result['result']['response'][0]['content']
-            
-            print(f"🤖 AI replied: {ai_response}")
-            print("\n✅ Success! You just had your first conversation with Incredible AI!")
-            
+            try:
+                # Success! The AI responded
+                result = response.json()
+                
+                # Extract the AI's response (dig into the nested response)
+                ai_response = result['result']['response'][0]['content']
+                
+                print(f"🤖 AI replied: {ai_response}")
+                print("\n✅ Success! You just had your first conversation with Incredible AI!")
+                
+            except (KeyError, ValueError) as e:
+                print(f"❌ Response parsing error: {e}")
+                print("💡 The response format might have changed.")
+                print(f"🔍 Raw response: {response.text[:300]}")
+                
         else:
             print(f"❌ Something went wrong. Error code: {response.status_code}")
             print(f"Error message: {response.text}")
