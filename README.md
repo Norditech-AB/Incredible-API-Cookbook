@@ -78,6 +78,8 @@ cd 01-getting-started && python 0_hello_world.py
 
 ```bash
 cd 02-function-calling && python3 1_simple_calculator.py
+# Or jump to the ultimate interactive experience:
+# python3 6_ai_dungeon_master.py
 ```
 
 **Master function calling with progressive examples:**
@@ -113,6 +115,14 @@ cd 02-function-calling && python3 1_simple_calculator.py
 - Compare multiple stocks and get investment recommendations
 - Educational explanations of financial concepts
 - Shows function calling with real-world APIs
+
+#### 🐉 **[6. AI Dungeon Master](./02-function-calling/6_ai_dungeon_master.py)** - Interactive RPG Adventure
+
+- **🎮 ULTIMATE Interactive Experience!** Play a text-based RPG with AI storytelling
+- Type commands, make choices, and see AI use function calling for game mechanics
+- Character creation, combat system, inventory management, leveling up
+- Real dice rolls, random encounters, treasure hunting, save/load progress
+- **Most engaging way to learn function calling through actual gameplay!**
 
 **Function calling enables AI to DO things, not just talk!**
 
