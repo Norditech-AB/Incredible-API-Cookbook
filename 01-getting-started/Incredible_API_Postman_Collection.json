@@ -1,7 +1,7 @@
 {
     "info": {
         "name": "Incredible API - Getting Started Tutorial",
-        "description": "Complete collection for the 8-part Incredible API tutorial.\n\n🌟 START HERE: Hello World (Request 0)\n\nThis collection matches the tutorial files:\n0. Hello World (0_hello_world.py) - Perfect for beginners!\n1. Basic Chat (1_basic_chat.py)\n2. Multiple Models (2_multiple_models.py)\n3. Conversations (3_conversation.py)\n4. Streaming Chat (4_streaming_chat.py)\n5. Function Calling (5_function_calling.py)\n6. Gmail Integration (6_gmail_integration.py)\n7. Perplexity Integration (7_perplexity_integration.py)\n\nIMPORTANT: Response Format\n=========================\nThe API returns responses in this nested format:\n\n```json\n{\n  \"result\": {\n    \"response\": [\n      {\n        \"content\": \"AI response text here...\",\n        \"role\": \"assistant\"\n      }\n    ],\n    \"thinking\": \"AI reasoning process...\"\n  }\n}\n```\n\nTo extract the actual response text, use: `result.result.response[0].content`",
+        "description": "Complete collection for the 6-part Incredible API tutorial.\n\n🌟 START HERE: Hello World (Request 0)\n\nThis collection matches the tutorial files:\n0. Hello World (0_hello_world.py) - Perfect for beginners!\n1. Basic Chat (1_basic_chat.py)\n2. Multiple Models (2_multiple_models.py)\n3. Conversations (3_conversation.py)\n4. Streaming Chat (4_streaming_chat.py)\n5. Function Calling (5_function_calling.py)\n\nIMPORTANT: Response Format\n=========================\nThe API returns responses in this nested format:\n\n```json\n{\n  \"result\": {\n    \"response\": [\n      {\n        \"content\": \"AI response text here...\",\n        \"role\": \"assistant\"\n      }\n    ],\n    \"thinking\": \"AI reasoning process...\"\n  }\n}\n```\n\nTo extract the actual response text, use: `result.result.response[0].content`",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
     },
     "variable": [
@@ -245,57 +245,7 @@
             }
         },
         {
-            "name": "8. Gmail Integration - Send Email",
-            "request": {
-                "method": "POST",
-                "header": [
-                    {
-                        "key": "Content-Type",
-                        "value": "application/json"
-                    },
-                    {
-                        "key": "Authorization",
-                        "value": "Bearer {{api_key}}"
-                    }
-                ],
-                "body": {
-                    "mode": "raw",
-                    "raw": "{\n    \"user_id\": \"{{user_id}}\",\n    \"feature_name\": \"GMAIL_SEND_EMAIL\",\n    \"inputs\": {\n        \"to\": \"test@example.com\",\n        \"subject\": \"Test from Incredible API via Postman! 🚀\",\n        \"body\": \"Hello!\\n\\nThis email was sent using the Incredible API through Postman.\\n\\nThis demonstrates the Gmail integration capability.\\n\\nBest regards,\\nYour AI Assistant 🤖\\n\\n---\\nPowered by Incredible API\"\n    }\n}"
-                },
-                "url": {
-                    "raw": "{{base_url}}/v1/integrations/gmail/execute",
-                    "host": ["{{base_url}}"],
-                    "path": ["v1", "integrations", "gmail", "execute"]
-                }
-            }
-        },
-        {
-            "name": "9. Perplexity Integration - Research",
-            "request": {
-                "method": "POST",
-                "header": [
-                    {
-                        "key": "Content-Type",
-                        "value": "application/json"
-                    },
-                    {
-                        "key": "Authorization",
-                        "value": "Bearer {{api_key}}"
-                    }
-                ],
-                "body": {
-                    "mode": "raw",
-                    "raw": "{\n    \"user_id\": \"{{user_id}}\",\n    \"feature_name\": \"PERPLEXITY_SEARCH\",\n    \"inputs\": {\n        \"query\": \"What are the latest trends in artificial intelligence 2024?\"\n    }\n}"
-                },
-                "url": {
-                    "raw": "{{base_url}}/v1/integrations/perplexity/execute",
-                    "host": ["{{base_url}}"],
-                    "path": ["v1", "integrations", "perplexity", "execute"]
-                }
-            }
-        },
-        {
-            "name": "10. Custom System Prompt - Pirate",
+            "name": "6. Custom System Prompt - Pirate",
             "request": {
                 "method": "POST",
                 "header": [
@@ -320,7 +270,7 @@
             }
         },
         {
-            "name": "11. Error Test - Invalid Model",
+            "name": "7. Error Test - Invalid Model",
             "request": {
                 "method": "POST",
                 "header": [

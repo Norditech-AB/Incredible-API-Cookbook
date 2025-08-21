@@ -22,16 +22,23 @@ A powerful API for creating AI agents that can:
 **Master the Incredible API fundamentals with hands-on examples**
 
 ```bash
-cd 01-getting-started && python 1_basic_chat.py
+cd 01-getting-started && python 0_hello_world.py
 ```
 
 **Complete progressive tutorial covering:**
+
+#### 🌟 **[0. Hello World](./01-getting-started/0_hello_world.py)** - Perfect for Complete Beginners
+
+- Simplest possible example in plain English
+- Explains what APIs are and how they work
+- Perfect for non-technical users
+- **Start here if you're new to programming or APIs!**
 
 #### 🔰 **[1. Basic Chat](./01-getting-started/1_basic_chat.py)** - Your First API Call
 
 - Send a simple message to AI and get a response
 - Learn the basic request format
-- Perfect starting point for beginners
+- Technical version of Hello World
 
 #### 🤖 **[2. Multiple Models](./01-getting-started/2_multiple_models.py)** - Try Different AI Models
 
@@ -57,19 +64,49 @@ cd 01-getting-started && python 1_basic_chat.py
 - Examples: math calculations, weather data
 - Extend AI capabilities
 
-#### 📧 **[6. Gmail Integration](./01-getting-started/6_gmail_integration.py)** - Send Emails with AI
-
-- Connect AI to Gmail
-- Send emails automatically
-- Build email assistants
-
-#### 🔍 **[7. Perplexity Integration](./01-getting-started/7_perplexity_integration.py)** - AI Research Assistant
-
-- Do intelligent research with AI
-- Get real-time information
-- Build research bots
-
 **Everything you need to start building with Incredible API!**
+
+---
+
+## ⚡ **Function Calling (Tools)**
+
+**Ready to give your AI superpowers?** Learn how to extend AI capabilities with function calling:
+
+### 🛠️ **[Function Calling Guide](./02-function-calling/)**
+
+**Transform AI from chatbot to action-taking assistant**
+
+```bash
+cd 02-function-calling && python3 1_simple_calculator.py
+```
+
+**Master function calling with progressive examples:**
+
+#### 🧮 **[1. Simple Calculator](./02-function-calling/1_simple_calculator.py)** - Your First Function Call
+
+- Give AI access to a calculator function
+- Learn the complete function calling flow
+- Based on [Anthropic's tool use documentation](https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview)
+
+#### 🛠️ **[2. Multiple Tools](./02-function-calling/2_multiple_tools.py)** - AI Chooses the Right Function
+
+- Give AI access to multiple functions (math, weather, time)
+- Watch AI intelligently choose the right tool for each question
+- Learn smart function selection
+
+#### 📊 **[3. JSON Extraction](./02-function-calling/3_json_extraction.py)** - Structured Data Output
+
+- Use function calling to extract structured JSON from unstructured text
+- Perfect for data processing and form filling
+- Transform messy text into clean database records
+
+#### 🚀 **[4. Advanced Workflow](./02-function-calling/4_advanced_workflow.py)** - Multi-Step Function Calling
+
+- Chain multiple function calls together
+- Build complex business process automation
+- Meeting scheduling with email confirmations and task creation
+
+**Function calling enables AI to DO things, not just talk!**
 
 ---
 
@@ -141,10 +178,10 @@ USER_ID=your_user_id_here
 ### 4. **Run Your First Example**
 
 ```bash
-python 1_basic_chat.py
+python 0_hello_world.py
 ```
 
-**That's it!** You're now making API calls with Incredible API. Continue with the other examples to learn more advanced features.
+**That's it!** You're now making API calls with Incredible API. This Hello World example explains everything in plain English. Continue with the other numbered examples to learn more advanced features.
 
 ## ⚙️ **Setup Requirements**
 
@@ -164,9 +201,8 @@ USER_ID=your_user_id_here
 
 ### Optional Integrations (for advanced examples)
 
-- **Gmail**: For email integration examples
-- **Perplexity AI**: For research functionality
 - **Weather API**: For function calling examples
+- **External APIs**: For building custom integrations
 
 _See the detailed [Getting Started README](./01-getting-started/README.md) for complete setup instructions._
 
@@ -176,13 +212,12 @@ The getting-started folder is organized for progressive learning:
 
 ```
 01-getting-started/
-├── 1_basic_chat.py           # 🔰 Your first API call - Start here!
+├── 0_hello_world.py          # 🌟 Perfect for complete beginners - Start here!
+├── 1_basic_chat.py           # 🔰 Your first technical API call
 ├── 2_multiple_models.py      # 🤖 Test different AI models
 ├── 3_conversation.py         # 💬 Multi-turn conversations
 ├── 4_streaming_chat.py       # 🌊 Real-time streaming responses
 ├── 5_function_calling.py     # ⚡ Give AI special powers
-├── 6_gmail_integration.py    # 📧 Send emails with AI
-├── 7_perplexity_integration.py # 🔍 AI research assistant
 ├── requirements.txt          # Python dependencies
 ├── env.example              # Configuration template
 ├── README.md                # Detailed tutorial guide
@@ -191,10 +226,11 @@ The getting-started folder is organized for progressive learning:
 
 **Simple Learning Path:**
 
-1. **Start** with `1_basic_chat.py` - Make your first API call
-2. **Progress** through each numbered file in order - One concept at a time
-3. **Set up** your credentials once in `.env` - Works for all examples
-4. **Run** each script individually - See how each concept works
+1. **Start** with `0_hello_world.py` - Perfect for beginners, explains everything in plain English
+2. **Continue** with `1_basic_chat.py` - Make your first technical API call
+3. **Progress** through each numbered file in order - One concept at a time
+4. **Set up** your credentials once in `.env` - Works for all examples
+5. **Run** each script individually - See how each concept works
 
 ## 🤝 Contributing
 

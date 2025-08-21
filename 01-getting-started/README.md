@@ -21,7 +21,7 @@ This single file will teach you:
 
 ## 📚 Complete Learning Path
 
-After Hello World, continue with these 7 detailed tutorials:
+After Hello World, continue with these 5 detailed tutorials:
 
 1. **🌟 Hello World** - Your very first API call (anyone can understand!)
 2. **🔰 Basic Chat** - Learn the fundamentals
@@ -29,8 +29,6 @@ After Hello World, continue with these 7 detailed tutorials:
 4. **💬 Conversations** - Chat back and forth with AI
 5. **🌊 Streaming** - See responses appear in real-time
 6. **⚡ Functions** - Give AI special powers
-7. **📧 Gmail** - Send emails with AI
-8. **🔍 Research** - AI research assistant
 
 ## ⚡ Quick Start
 
@@ -195,38 +193,6 @@ python 5_function_calling.py
 
 ---
 
-### 📧 **6_gmail_integration.py** - Send Emails with AI
-
-**What it does:** Connect AI to Gmail so it can send emails automatically.
-
-**Perfect for:** Building AI assistants that can communicate via email.
-
-```bash
-python 6_gmail_integration.py
-```
-
-**You'll see:**
-
-```
-📤 Sending email to: test@example.com
-✅ Email sent successfully!
-🎉 Your AI can now send emails!
-```
-
----
-
-### 🔍 **7_perplexity_integration.py** - AI Research Assistant
-
-**What it does:** Use AI to do intelligent research on any topic.
-
-**Perfect for:** Building AI that can gather real-time information.
-
-```bash
-python 7_perplexity_integration.py
-```
-
-**You'll see AI researching topics and providing detailed answers with sources!**
-
 ## 🛠️ Setup Details
 
 ### Prerequisites
@@ -270,11 +236,6 @@ Install with: `pip install -r requirements.txt`
 - Check your internet connection
 - Verify API key is valid
 - Try again in a few minutes
-
-### Integration Errors (File 6)
-
-- Gmail: Connect Gmail integration in your dashboard
-- Perplexity: Add Perplexity API key in your dashboard
 
 ## 📚 API Response Formats
 
