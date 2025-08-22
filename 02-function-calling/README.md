@@ -1,47 +1,47 @@
 # Function Calling (Tools) with Incredible API
 
-**Master the power of function calling - give your AI superpowers to interact with the real world!**
+**Give your AI superpowers to interact with the real world!**
 
-✅ **All examples tested and working** - Ready to run out of the box!
+✅ **All examples tested and working**
 
-Function calling (also known as "tools" in Claude terminology) allows AI to execute custom functions, access external APIs, perform calculations, and interact with systems. This transforms static AI responses into dynamic, actionable workflows.
+Function calling allows AI to execute custom functions, access APIs, perform calculations, and interact with systems. Transform static AI responses into dynamic, actionable workflows.
 
 ## 🎯 What You'll Learn
 
-Each example builds upon the previous one, teaching you progressively advanced function calling concepts:
+Progressive examples teaching advanced function calling:
 
-1. **🧮 Simple Calculator** - Single function calling (like Anthropic's example)
+1. **🧮 Simple Calculator** - Single function calling
 2. **🛠️ Multiple Tools** - Weather, calculator, and time functions
-3. **📊 JSON Extraction** - Using tools for structured data output
-4. **🚀 Advanced Workflow** - Multi-step function calling with real applications
-5. **📈 Stock Analysis** - Real-world example with Yahoo Finance API integration
+3. **📊 JSON Extraction** - Structured data output
+4. **🚀 Advanced Workflow** - Multi-step function calling
+5. **📈 Stock Analysis** - Real-world Yahoo Finance integration
 
 ## ⚡ Quick Start
 
 ```bash
-# 1. Navigate to function calling examples
+# 1. Navigate to function calling
 cd 02-function-calling
 
-# 2. Install dependencies (if not already done)
+# 2. Install dependencies
 pip3 install -r requirements.txt
 
-# 3. Set up your API key
+# 3. Set up API key
 cp env.example .env
-# Edit .env with your API key and user ID
+# Edit .env with your credentials
 
-# 4. Run the examples in order (each builds on the previous)
-python3 1_simple_calculator.py      # ✅ Start here - basic function calling
-python3 2_multiple_tools.py         # ✅ Then this - AI choosing between tools
-python3 3_json_extraction.py        # ✅ Then this - structured data extraction
-python3 4_advanced_workflow.py      # ✅ Then this - complex multi-step workflows
-python3 5_stock_analysis.py         # 🎉 Fun finale - real-world stock analysis!
+# 4. Run examples in order
+python3 1_simple_calculator.py
+python3 2_multiple_tools.py
+python3 3_json_extraction.py
+python3 4_advanced_workflow.py
+python3 5_stock_analysis.py
 ```
 
-## 🔧 How Function Calling Works
+## 🔧 How It Works
 
-Based on [Anthropic's tool use documentation](https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview#single-tool-example), here's the flow:
+Based on [Anthropic's tool use documentation](https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview):
 
-### 1. **Define Functions**
+### 1. Define Functions
 
 ```python
 def calculate_sum(a, b):
@@ -63,16 +63,14 @@ functions = [{
 }]
 ```
 
-### 2. **AI Decides to Use Function**
+### 2. AI Uses Function
 
 ```json
 {
   "result": {
     "response": [
-      { "role": "assistant", "content": "I'll calculate that for you." },
       {
         "type": "function_call",
-        "function_call_id": "abc-123",
         "function_calls": [
           {
             "name": "calculate_sum",
@@ -85,35 +83,18 @@ functions = [{
 }
 ```
 
-### 3. **Execute Function & Return Results**
+### 3. Execute & Return Results
 
 ```python
-# Your code executes the function
 result = calculate_sum(15, 25)  # Returns 40
-
-# Send result back to AI in message history
-function_result_message = {
-    "type": "function_call_result",
-    "function_call_id": "abc-123",
-    "function_call_results": [result]
-}
+# Send result back to AI
 ```
 
-### 4. **AI Uses Results in Final Response**
-
-```
-🤖 AI: "The sum of 15 and 25 is 40."
-```
-
-## 📁 Example Files
+## 📁 Examples
 
 ### 🧮 **1_simple_calculator.py** - Your First Function Call
 
-**What it does:** Implements a simple calculator that AI can use for math problems.
-
-**Perfect for:** Understanding the basic function calling flow.
-
-**Inspired by:** [Anthropic's single tool example](https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview#single-tool-example)
+Basic calculator that AI can use for math.
 
 ```bash
 python3 1_simple_calculator.py
@@ -128,33 +109,17 @@ python3 1_simple_calculator.py
 🤖 AI: The sum of 127 and 349 is 476.
 ```
 
----
+### 🛠️ **2_multiple_tools.py** - Multiple Functions
 
-### 🛠️ **2_multiple_tools.py** - Multiple Functions Available
-
-**What it does:** Gives AI access to weather, calculator, and time functions.
-
-**Perfect for:** Learning how AI chooses between multiple available tools.
+AI chooses between weather, calculator, and time functions.
 
 ```bash
 python3 2_multiple_tools.py
 ```
 
-**You'll see AI intelligently choose the right tool for each question:**
+### 📊 **3_json_extraction.py** - Structured Data
 
-- Math questions → Calculator
-- Time questions → Time function
-- Weather questions → Weather function
-
----
-
-### 📊 **3_json_extraction.py** - Structured Data Output
-
-**What it does:** Uses function calling to extract structured JSON from unstructured text.
-
-**Perfect for:** Data processing, form filling, and content analysis.
-
-**Based on:** [Anthropic's JSON mode example](https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview#json-mode)
+Extract structured JSON from unstructured text.
 
 ```bash
 python3 3_json_extraction.py
@@ -172,113 +137,79 @@ python3 3_json_extraction.py
 }
 ```
 
----
+### 🚀 **4_advanced_workflow.py** - Complex Workflows
 
-### 🚀 **4_advanced_workflow.py** - Real-World Application
-
-**What it does:** Combines multiple functions in a complex workflow (email + calendar + task management).
-
-**Perfect for:** Understanding how to build practical AI assistants.
+Multi-step workflows combining email, calendar, and task management.
 
 ```bash
 python3 4_advanced_workflow.py
 ```
 
-**Example workflow:** AI schedules a meeting, sends confirmation email, and creates follow-up tasks.
+### 📈 **5_stock_analysis.py** - Real-World Financial AI
 
----
-
-### 📈 **5_stock_analysis.py** - AI-Powered Stock Analysis (Fun Real-World Example!)
-
-**What it does:** Creates an intelligent stock analysis assistant using real Yahoo Finance data.
-
-**Perfect for:** Seeing function calling in action with real-world financial APIs.
+AI-powered stock analysis with Yahoo Finance data.
 
 ```bash
 python3 5_stock_analysis.py
 ```
 
-**🎯 Features:**
+**Features:**
 
-- **Real stock data** from Yahoo Finance API (same data professionals use)
-- **AI analysis** of market trends, technical indicators, and investment opportunities
-- **Technical indicators** like moving averages, RSI, support/resistance levels
-- **Multi-stock comparison** side-by-side analysis
-- **Investment recommendations** with risk assessment
-- **Educational explanations** of financial concepts in simple terms
+- Real stock data from Yahoo Finance
+- AI analysis of market trends and indicators
+- Technical indicators (RSI, moving averages)
+- Investment recommendations with risk assessment
 
-**You'll see AI analyze stocks like:**
+**Sample output:**
 
 ```
 📈 AI STOCK ANALYSIS REPORT
 =============================================================
-Based on the current data for Apple (AAPL):
-
-💰 Current Price: $193.58 (+1.23%)
+Apple (AAPL): $193.58 (+1.23%)
 📊 Technical Indicators:
-   • RSI: 45.2 (Neutral - room for growth)
-   • 20-day SMA: $190.45 (Price above average - bullish signal)
-   • Support Level: $185.20 | Resistance: $198.50
+   • RSI: 45.2 (Neutral)
+   • 20-day SMA: $190.45 (Bullish signal)
+   • Support: $185.20 | Resistance: $198.50
 
 📈 Investment Analysis:
-Apple shows solid fundamentals with a P/E ratio of 28.5 and strong market
-position. The stock is currently in a neutral RSI zone, suggesting it's
-neither overbought nor oversold...
-
+Strong fundamentals with P/E ratio of 28.5...
 ⚠️ Risks: Market volatility, regulatory concerns
 🚀 Opportunities: Strong ecosystem, services growth
 =============================================================
 ```
 
-**🌟 Why This Example is Special:**
+## 🛠️ Setup
 
-- **Real-world integration** with financial APIs
-- **Educational value** - teaches both AI and finance concepts
-- **Practical application** - actually useful for investment research
-- **Advanced function chaining** - AI automatically chooses which analysis tools to use
-- **Professional-grade data** - same Yahoo Finance API used by trading platforms
+**Prerequisites:**
 
-**Required:** `pip install yfinance` (automatically included in requirements.txt)
+- Python 3.8+
+- Incredible API account
 
-## 🛠️ Setup Details
-
-### Prerequisites
-
-- Python 3.8 or newer
-- Incredible API account with API key
-- Understanding of basic API calls (complete `01-getting-started` first)
-
-### Environment Variables
-
-Create a `.env` file with:
+**Environment (.env):**
 
 ```bash
 INCREDIBLE_API_KEY=your_api_key_here
 USER_ID=your_user_id_here
 ```
 
-### Dependencies
+**Dependencies:**
 
 ```
 requests>=2.31.0
 python-dotenv>=1.0.0
-yfinance>=0.2.18        # For stock analysis example
+yfinance>=0.2.18        # For stock analysis
 ```
 
-Install with: `pip3 install -r requirements.txt`
-
-**Note:** The `yfinance` library is required for the stock analysis example and provides access to Yahoo Finance data.
+Install: `pip3 install -r requirements.txt`
 
 ## 💡 Key Concepts
 
-### **Tool Schema Definition**
-
-Every function needs a clear schema so AI understands how to use it:
+**Function Schema:**
 
 ```python
 {
     "name": "function_name",
-    "description": "Clear description of what this function does",
+    "description": "Clear description of what this does",
     "parameters": {
         "type": "object",
         "properties": {
@@ -292,75 +223,25 @@ Every function needs a clear schema so AI understands how to use it:
 }
 ```
 
-### **Function Execution Flow**
+**Execution Flow:**
 
-1. **Define** your functions with `parameters` schema
-2. **Send** user query + available functions to API
-3. **Check** response for `type: "function_call"` items
-4. **Execute** the requested function(s) locally
-5. **Send** results back using `function_call_result` message type
-6. **Get** final response with function results incorporated
-
-### **Best Practices**
-
-- ✅ **Clear descriptions** - AI needs to understand when to use each tool
-- ✅ **Proper error handling** - Functions might fail or get invalid inputs
-- ✅ **Type validation** - Validate inputs before executing functions
-- ✅ **Meaningful names** - Use descriptive function and parameter names
-- ✅ **Return useful data** - Functions should return actionable information
-
-## 🔍 Troubleshooting
-
-### "500 Internal Server Error with multiple tools"
-
-- Ensure ALL function definitions use `"parameters"` (not `"input_schema"`)
-- Mixed schema formats in the same request will cause API errors
-- Check that each tool definition follows the exact same structure
-
-### "Data parsing errors in extraction functions"
-
-- Functions should handle raw text input (like "$899" or "around 500 people")
-- Use regex to extract numeric values from descriptive text
-- Make optional parameters truly optional with default values
-
-### "AI isn't using my function"
-
-- Check function description is clear and specific
-- Ensure the user query actually needs that function
-- Verify the schema matches your function parameters
-
-### "Function execution failed"
-
-- Add error handling in your function code
-- Validate inputs before processing
-- Return meaningful error messages
-
-### "Unexpected function calls"
-
-- Make function descriptions more specific
-- Add conditions for when the function should be used
-- Consider using fewer, more focused functions
+1. Define functions with schema
+2. Send query + available functions to API
+3. Check for `function_call` in response
+4. Execute functions locally
+5. Send results back using `function_call_result`
+6. Get final response with results
 
 ## 🎉 What's Next?
 
-After mastering function calling, you'll be ready to:
+After mastering function calling:
 
-- **Build AI assistants** that can perform real actions
-- **Integrate with external APIs** through functions
-- **Create automated workflows** combining multiple tools
-- **Process structured data** with AI-powered extraction
-- **Build complex applications** where AI orchestrates multiple systems
-
-## 🚀 Advanced Topics
-
-- **Error handling and retries** in function calls
-- **Streaming function calls** for real-time updates
-- **Function call chaining** for complex workflows
-- **Dynamic function generation** based on context
-- **Function call monitoring** and logging
+- Build AI assistants that perform real actions
+- Integrate with external APIs
+- Create automated workflows
+- Process structured data with AI
+- Build complex applications where AI orchestrates systems
 
 ---
 
-**Ready to give your AI superpowers?** Start with `python3 1_simple_calculator.py` and watch AI come alive! 🎊
-
-_This section is inspired by [Anthropic's excellent tool use documentation](https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview) - adapted for the Incredible API._
+**Ready to give your AI superpowers?** Start with `python3 1_simple_calculator.py` 🎊
