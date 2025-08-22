@@ -61,6 +61,8 @@ cd 02-function-calling
 - **📊 JSON Extraction** - Structured data output
 - **🚀 Advanced Workflow** - Multi-step automation
 - **📈 Stock Analysis** - Real-world example with Yahoo Finance
+- **🚀 Dungeon Master** - Experience AI-powered storytelling with real game mechanics
+- **🎨 Content Creator** - Complete content pipeline from research to publication
 
 ## 📋 API Response Format
 
