@@ -232,23 +232,6 @@ Install: `pip3 install -r requirements.txt`
 5. Send results back using `function_call_result`
 6. Get final response with results
 
-## 🔍 Troubleshooting
-
-**"500 Internal Server Error":**
-
-- Ensure ALL function definitions use `"parameters"` (not `"input_schema"`)
-- Check schema consistency
-
-**"AI isn't using my function":**
-
-- Make function description clear and specific
-- Verify schema matches function parameters
-
-**"Function execution failed":**
-
-- Add error handling in function code
-- Validate inputs before processing
-
 ## 🎉 What's Next?
 
 After mastering function calling:

@@ -155,19 +155,6 @@ python-dotenv>=1.0.0
 
 Install: `pip install -r requirements.txt`
 
-## 🔧 Troubleshooting
-
-**"Missing API key":**
-
-- Create `.env` file
-- Add `INCREDIBLE_API_KEY`
-- Get key from [Incredible API dashboard](https://incredible.one)
-
-**"Connection Error":**
-
-- Check internet connection
-- Verify API key is valid
-
 ## 🎉 Next Steps
 
 After completing all tutorials:
