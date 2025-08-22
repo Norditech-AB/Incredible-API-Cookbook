@@ -199,15 +199,6 @@ python3 6_ai_dungeon_master.py
 - **Multiple encounter types**: Combat, treasure hunting, skill challenges
 - **Strategic gameplay**: Meaningful choices affect story outcomes
 
-**Function calling demonstration:**
-
-- `roll_dice()` - Combat rolls, skill checks, random events with dramatic results
-- `manage_player_stats()` - Health, experience, gold, and level progression
-- `manage_inventory()` - Equipment management, item usage, treasure collection
-- `combat_system()` - Turn-based battles with strategic dice mechanics
-- `generate_encounter()` - Random adventures based on location
-- `save_game_state()` / `load_game_state()` - Game persistence
-
 **Sample gameplay:**
 
 ```
@@ -219,13 +210,6 @@ python3 6_ai_dungeon_master.py
 🎉 Victory! +35 XP, +20 gold, found Magic Ring!
 📊 Level Up! You are now Level 2!
 ```
-
-**Why it's perfect for learning:**
-
-- **Immediate feedback**: See function results through engaging gameplay
-- **Complex workflows**: Multiple functions work together seamlessly
-- **Real-world parallels**: Game mechanics apply to business applications
-- **User engagement**: Makes abstract concepts tangible and fun
 
 ### 🎨 **7_content_creator.py** - Complete Content Creation Pipeline
 
@@ -242,16 +226,6 @@ python3 7_content_creator.py
 - **AI orchestration**: AI coordinates complex multi-step tasks
 - **Complete automation**: From topic research to saved markdown files
 
-**Available functions:**
-
-- `search_web()` - Web research with structured results
-- `create_file()` - File creation with multiple formats (txt, md, html, json)
-- `read_file_content()` - File reading operations
-- `append_to_file()` - Content appending to existing files
-- `count_words()` - Text statistics (words, reading time, sentences)
-- `format_as_markdown()` - Professional Markdown formatting
-- `get_current_time()` - Timestamp generation
-
 **Execution flow:**
 
 ```
@@ -265,12 +239,6 @@ python3 7_content_creator.py
 
 📄 Result: Professional article saved to artifacts/ai_developer_impact.md
 ```
-
-**Key demonstration:**
-
-- **AI handles creativity**: Content generation, structure, analysis
-- **Functions handle utilities**: File I/O, web search, formatting, statistics
-- **True function calling**: AI using real tools to complete complex workflows
 
 ## 🛠️ Setup
 
