@@ -1,10 +1,6 @@
-# Incredible API Cookbook 🧪
+# ![Incredible-API-Cookbook-logo-lightmode](https://github.com/user-attachments/assets/418f7e07-d6ea-47d3-b428-887ba795e8a3#gh-light-mode-only) ![Incredible-API-Cookbook-logo](https://github.com/user-attachments/assets/de26b80c-c44a-4def-b357-128b0f632ef1#gh-dark-mode-only)
 
-**Learn to build AI agents with the Incredible API through hands-on, executable examples.**
-
-## 🎯 What is Incredible API?
-
-A powerful API for creating AI agents with:
+Learn to build AI agents with the Incredible API through hands-on, executable examples.
 
 - **Chat completion** with advanced models (`small-1`, `big-1`, `huge-1` coming soon)
 - **Function calling** to extend AI capabilities
