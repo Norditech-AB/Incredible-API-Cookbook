@@ -15,6 +15,8 @@ Progressive examples teaching advanced function calling:
 3. **📊 JSON Extraction** - Structured data output
 4. **🚀 Advanced Workflow** - Multi-step function calling
 5. **📈 Stock Analysis** - Real-world Yahoo Finance integration
+6. **🐉 AI Dungeon Master** - Interactive RPG with game mechanics
+7. **🎨 Content Creator** - AI-powered content creation with real utility functions
 
 ## ⚡ Quick Start
 
@@ -35,6 +37,8 @@ python3 2_multiple_tools.py
 python3 3_json_extraction.py
 python3 4_advanced_workflow.py
 python3 5_stock_analysis.py
+python3 6_ai_dungeon_master.py
+python3 7_content_creator.py
 ```
 
 ## 🔧 How It Works
@@ -176,6 +180,64 @@ Strong fundamentals with P/E ratio of 28.5...
 ⚠️ Risks: Market volatility, regulatory concerns
 🚀 Opportunities: Strong ecosystem, services growth
 =============================================================
+```
+
+### 🐉 **6_ai_dungeon_master.py** - Interactive RPG Adventure
+
+The most engaging way to learn function calling! Experience AI-powered storytelling with real game mechanics.
+
+```bash
+python3 6_ai_dungeon_master.py
+```
+
+**Game Features:**
+
+- **Interactive character creation**: Choose Warrior, Mage, or Rogue classes
+- **AI storytelling**: Dynamic narratives that adapt to your choices
+- **Real game mechanics**: Dice rolling, combat, inventory, experience system
+- **Persistent progression**: Save/load game state, level advancement
+- **Multiple encounter types**: Combat, treasure hunting, skill challenges
+- **Strategic gameplay**: Meaningful choices affect story outcomes
+
+**Sample gameplay:**
+
+```
+👤 You: I look around the tavern for anyone suspicious
+🎲 AI rolls perception check: 18 (Success!)
+🎭 DM: You notice a hooded figure whispering to the bartender...
+⚔️  Combat: Wild Goblin appears! (25 HP)
+🎲 Attack roll: 16 + 2 = 18 → 8 damage dealt!
+🎉 Victory! +35 XP, +20 gold, found Magic Ring!
+📊 Level Up! You are now Level 2!
+```
+
+### 🎨 **7_content_creator.py** - Complete Content Creation Pipeline
+
+AI-powered content creation using real utility functions for research, writing, and file management.
+
+```bash
+python3 7_content_creator.py
+```
+
+**Features:**
+
+- **5-step mandatory workflow**: Research → Write → Save → Analyze → Timestamp
+- **Real utility functions**: Web search, file operations, text analysis
+- **AI orchestration**: AI coordinates complex multi-step tasks
+- **Complete automation**: From topic research to saved markdown files
+
+**Execution flow:**
+
+```
+👤 User: Create content about "AI impact on developers"
+
+🔍 Step 1: AI calls search_web("AI impact on developers")
+✍️ Step 2: AI writes 1000+ word article with structured sections
+💾 Step 3: AI calls create_file() to save as markdown
+📊 Step 4: AI calls count_words() for text analysis
+⏰ Step 5: AI calls get_current_time() for timestamp
+
+📄 Result: Professional article saved to artifacts/ai_developer_impact.md
 ```
 
 ## 🛠️ Setup

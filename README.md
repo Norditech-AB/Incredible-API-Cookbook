@@ -2,6 +2,10 @@
 
 Learn to build AI agents with the Incredible API through hands-on, executable examples.
 
+## 🎯 What is Incredible API?
+
+A powerful API for creating AI agents with:
+
 - **Chat completion** with advanced models (`small-1`, `big-1`, `huge-1` coming soon)
 - **Function calling** to extend AI capabilities
 - **Streaming responses** for real-time interaction
@@ -57,6 +61,8 @@ cd 02-function-calling
 - **📊 JSON Extraction** - Structured data output
 - **🚀 Advanced Workflow** - Multi-step automation
 - **📈 Stock Analysis** - Real-world example with Yahoo Finance
+- **🐉 Dungeon Master** - Experience AI-powered storytelling with real game mechanics
+- **🎨 Content Creator** - Complete content pipeline from research to publication
 
 ## 📋 API Response Format
 
