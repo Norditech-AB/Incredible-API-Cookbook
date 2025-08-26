@@ -376,7 +376,6 @@ Do NOT do multiple searches. Do NOT stop after research. You MUST save the actua
         "stream": False,
         "messages": messages,
         "functions": functions,
-        "max_tokens": 8000
     }
     
     # Track all function calls and results for the complete pipeline
